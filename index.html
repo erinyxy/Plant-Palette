@@ -33,15 +33,9 @@ header {
   padding: 14px 20px; display: flex; align-items: center; gap: 18px;
 }
 .brand {
-  display: flex; flex-direction: column; line-height: 1; white-space: nowrap;
-}
-.brand .en {
   font-family: 'DM Serif Display', serif; font-style: italic;
-  font-size: 26px; color: var(--green-dark); letter-spacing: 0.01em;
-}
-.brand .jp {
-  font-size: 11px; color: var(--text-soft); margin-top: 4px;
-  letter-spacing: 0.18em;
+  font-size: 28px; color: var(--green-dark); letter-spacing: 0.01em;
+  white-space: nowrap; line-height: 1;
 }
 #search {
   flex: 1; max-width: 400px;
@@ -68,6 +62,14 @@ aside {
 #results { flex: 1; padding: 16px; }
 
 /* ===== Filter section ===== */
+.zone-header {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: 18px; color: var(--green-dark);
+  background: var(--green-light); border-left: 3px solid var(--green);
+  padding: 6px 12px; margin: 14px 0 8px;
+  border-radius: 4px;
+}
+.zone-header:first-child { margin-top: 4px; }
 .filter-group { margin-bottom: 6px; border-bottom: 1px solid var(--border); }
 .filter-group:last-child { border-bottom: none; }
 .filter-header {
@@ -178,8 +180,7 @@ aside {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   header { padding: 10px 14px; flex-wrap: wrap; gap: 12px; }
-  .brand .en { font-size: 20px; }
-  .brand .jp { font-size: 10px; letter-spacing: 0.15em; }
+  .brand { font-size: 22px; }
   #search { font-size: 16px; max-width: none; flex: 1; min-width: 0; }
   #filter-toggle { display: block; }
   main { display: block; }
@@ -203,12 +204,9 @@ aside {
 <body>
 
 <header>
-  <div class="brand">
-    <span class="en">Plant Palette</span>
-    <span class="jp">植栽パレット</span>
-  </div>
+  <div class="brand">Plant Palette</div>
   <button id="filter-toggle">≡ Filters</button>
-  <input type="text" id="search" placeholder="Search plant name (Japanese / English)…">
+  <input type="text" id="search" placeholder="Search plants by name or attributes…">
   <span class="count">Showing <strong id="count">0</strong> / 593</span>
 </header>
 
@@ -366,16 +364,18 @@ fetch('plants.json').then(r => r.json()).then(data => {
 function renderFilters() {
   const container = document.getElementById('filters');
   // Universal first
-  const uniSection = document.createElement('div');
-  uniSection.innerHTML = '<h3 style="font-size:12px;color:#6c6c6c;text-transform:uppercase;letter-spacing:0.05em;margin:10px 4px 4px;">Basic Attributes</h3>';
-  container.appendChild(uniSection);
+  const uniHeader = document.createElement('div');
+  uniHeader.className = 'zone-header';
+  uniHeader.textContent = 'Basic Attributes';
+  container.appendChild(uniHeader);
   for (const [enLabel, field, values] of UNIVERSAL_GROUPS) {
     container.appendChild(makeFilterGroup(enLabel, field, values.map(v => [v, v]), field === '樹高区分'));
   }
   // Themes
-  const themeSection = document.createElement('div');
-  themeSection.innerHTML = '<h3 style="font-size:12px;color:#6c6c6c;text-transform:uppercase;letter-spacing:0.05em;margin:14px 4px 4px;">Themes</h3>';
-  container.appendChild(themeSection);
+  const themeHeader = document.createElement('div');
+  themeHeader.className = 'zone-header';
+  themeHeader.textContent = 'Themes';
+  container.appendChild(themeHeader);
   for (const [enLabel, colorClass, tagList] of THEME_GROUPS) {
     container.appendChild(makeFilterGroup(enLabel, 'theme_tags', tagList, false, colorClass));
   }
