@@ -501,7 +501,8 @@ function makeCard(p) {
   if (p.樹高区分 && p.樹高区分 !== 'unknown') html += `<span class="attr-chip">${p.樹高区分}</span>`;
   if (p.必要日照 && p.必要日照 !== 'unknown') html += `<span class="attr-chip">${p.必要日照}</span>`;
   if (p.常緑性 && p.常緑性 !== 'unknown') html += `<span class="attr-chip">${p.常緑性}</span>`;
-  if (p.花色 && p.花色.length) html += `<span class="attr-chip">花${p.花色.join('・')}</span>`;
+  const validColors = (p.花色 || []).filter(c => c && c !== 'unknown');
+  if (validColors.length) html += `<span class="attr-chip">花${validColors.join('・')}</span>`;
   // Limit theme tags shown
   if (p.theme_tags && p.theme_tags.length) {
     const tagsToShow = p.theme_tags.slice(0, 3);
@@ -544,7 +545,8 @@ function openModal(p) {
     ['Hardiness Zone', '耐寒ゾーン'], ['Climate', '気候帯'], ['Min Temp', '平均最低気温'],
     ['Flower Color', '花色'], ['Region', '地域限定']
   ]) {
-    const v = p[field];
+    let v = p[field];
+    if (Array.isArray(v)) v = v.filter(x => x && x !== 'unknown');
     if (v && v !== 'unknown' && (!Array.isArray(v) || v.length)) {
       const dv = Array.isArray(v) ? v.join('、') : v;
       html += `<dt>${enLabel}</dt><dd>${dv}</dd>`;
