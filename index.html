@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Palette · 植栽パレット</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #5a8a52;
+  --green-light: #e8f0e3;
+  --green-dark: #3d6035;
+  --bg: #fafaf7;
+  --card: #ffffff;
+  --text: #2a2a2a;
+  --text-soft: #6c6c6c;
+  --border: #e3e3dd;
+  --chip-bg: #f0ede5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: -apple-system, "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.5;
+}
+
+/* ===== Header ===== */
+header {
+  background: var(--card); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  padding: 14px 20px; display: flex; align-items: center; gap: 18px;
+}
+.brand {
+  display: flex; flex-direction: column; line-height: 1; white-space: nowrap;
+}
+.brand .en {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: 26px; color: var(--green-dark); letter-spacing: 0.01em;
+}
+.brand .jp {
+  font-size: 11px; color: var(--text-soft); margin-top: 4px;
+  letter-spacing: 0.18em;
+}
+#search {
+  flex: 1; max-width: 400px;
+  padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px;
+  font-size: 14px; background: var(--bg);
+}
+#search:focus { outline: none; border-color: var(--green); background: white; }
+.count {
+  font-size: 13px; color: var(--text-soft); white-space: nowrap;
+}
+.count strong { color: var(--green-dark); font-weight: 600; }
+#filter-toggle {
+  display: none; background: var(--green); color: white; border: none;
+  padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 14px;
+}
+
+/* ===== Layout ===== */
+main { display: flex; min-height: calc(100vh - 56px); }
+aside {
+  width: 320px; padding: 16px; background: var(--card);
+  border-right: 1px solid var(--border); overflow-y: auto;
+  height: calc(100vh - 56px); position: sticky; top: 56px;
+}
+#results { flex: 1; padding: 16px; }
+
+/* ===== Filter section ===== */
+.filter-group { margin-bottom: 6px; border-bottom: 1px solid var(--border); }
+.filter-group:last-child { border-bottom: none; }
+.filter-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 4px; cursor: pointer; user-select: none;
+}
+.filter-header:hover { background: var(--green-light); border-radius: 4px; }
+.filter-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.filter-title small { font-weight: 400; color: var(--text-soft); margin-left: 6px; }
+.filter-arrow { font-size: 10px; color: var(--text-soft); transition: transform 0.15s; }
+.filter-group.open .filter-arrow { transform: rotate(90deg); }
+.filter-body { display: none; padding: 4px 4px 10px; }
+.filter-group.open .filter-body { display: block; }
+
+.chip {
+  display: inline-block;
+  padding: 4px 10px; margin: 3px 4px 3px 0;
+  background: var(--chip-bg); border: 1px solid transparent;
+  border-radius: 14px; font-size: 12px;
+  cursor: pointer; user-select: none;
+  white-space: nowrap;
+}
+.chip:hover { background: #e3dfd0; }
+.chip.active {
+  background: var(--green); color: white; border-color: var(--green);
+}
+.chip .count { color: var(--text-soft); margin-left: 4px; font-size: 11px; }
+.chip.active .count { color: rgba(255,255,255,0.8); }
+
+#clear-all {
+  width: 100%; padding: 8px; margin-bottom: 12px;
+  background: transparent; color: var(--text-soft);
+  border: 1px solid var(--border); border-radius: 6px;
+  font-size: 13px; cursor: pointer;
+}
+#clear-all:hover { background: var(--green-light); color: var(--green-dark); }
+#clear-all:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ===== Plant cards ===== */
+.cards {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px; cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); transform: translateY(-1px); }
+
+.card-name {
+  font-size: 16px; font-weight: 600; color: var(--text);
+}
+.card-en {
+  font-size: 12px; color: var(--text-soft); margin-top: 2px;
+  font-style: italic;
+}
+.card-attrs {
+  display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px;
+}
+.attr-chip {
+  display: inline-block; padding: 2px 8px;
+  background: var(--green-light); color: var(--green-dark);
+  border-radius: 10px; font-size: 11px;
+}
+.attr-chip.tag-style { background: #f4e4d4; color: #8a5a2a; }
+.attr-chip.tag-flora { background: #f9e0e8; color: #a04060; }
+.attr-chip.tag-bark { background: #e8dcc0; color: #6a4a20; }
+.attr-chip.tag-func { background: #d8e8f0; color: #2e5a7a; }
+.attr-chip.tag-feature { background: #e0e0e8; color: #4a4a6a; }
+.card-meta {
+  margin-top: 8px; font-size: 11px; color: var(--text-soft);
+}
+
+/* ===== Modal ===== */
+.modal-bg {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4); z-index: 200;
+  align-items: center; justify-content: center;
+}
+.modal-bg.open { display: flex; }
+.modal {
+  background: white; border-radius: 12px; padding: 24px;
+  max-width: 600px; max-height: 80vh; overflow-y: auto;
+  width: calc(100% - 32px);
+}
+.modal h2 {
+  font-size: 22px; color: var(--green-dark);
+  border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;
+}
+.modal-section { margin-top: 14px; }
+.modal-section h3 {
+  font-size: 13px; color: var(--text-soft); text-transform: uppercase;
+  letter-spacing: 0.05em; margin-bottom: 6px;
+}
+.modal-section dl { display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px; font-size: 13px; }
+.modal-section dt { color: var(--text-soft); }
+.modal-section dd { color: var(--text); }
+.modal-close {
+  float: right; background: none; border: none; font-size: 22px;
+  cursor: pointer; color: var(--text-soft); line-height: 1;
+}
+
+.empty {
+  text-align: center; padding: 60px 20px; color: var(--text-soft); font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  header { padding: 10px 14px; flex-wrap: wrap; gap: 12px; }
+  .brand .en { font-size: 20px; }
+  .brand .jp { font-size: 10px; letter-spacing: 0.15em; }
+  #search { font-size: 16px; max-width: none; flex: 1; min-width: 0; }
+  #filter-toggle { display: block; }
+  main { display: block; }
+  aside {
+    position: fixed; top: 0; left: -100%; width: 86%;
+    max-width: 360px; height: 100vh; z-index: 150;
+    transition: left 0.25s; box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+    padding-top: 56px;
+  }
+  aside.open { left: 0; }
+  .backdrop {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 140;
+  }
+  .backdrop.show { display: block; }
+  #results { padding: 12px; }
+  .cards { grid-template-columns: 1fr; }
+  .card { padding: 12px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="en">Plant Palette</span>
+    <span class="jp">植栽パレット</span>
+  </div>
+  <button id="filter-toggle">≡ Filters</button>
+  <input type="text" id="search" placeholder="Search plant name (Japanese / English)…">
+  <span class="count">Showing <strong id="count">0</strong> / 593</span>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+
+<main>
+  <aside id="sidebar">
+    <button id="clear-all" disabled>Clear all filters</button>
+    <div id="filters"></div>
+  </aside>
+  <section id="results">
+    <div class="cards" id="cards"></div>
+    <div class="empty" id="empty" style="display:none">No plants match your filters.</div>
+  </section>
+</main>
+
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ===== Filter groups configuration =====
+// Each group: English label + Japanese tag values
+const THEME_GROUPS = [
+  ['Garden Style', 'style', [
+    ['style_japanese_classic', '和風'],
+    ['style_zoki_bayashi', '雑木林（野趣）'],
+    ['style_japanese_western_fusion', '和洋融合'],
+    ['style_nordic', '北欧風'],
+    ['style_mediterranean', '地中海風'],
+    ['style_ethnic_tropical', 'エスニック'],
+    ['style_latin_dry', '中南米風'],
+  ]],
+  ['Wildlife', 'feature', [
+    ['bird_friendly', '小鳥が遊ぶ'],
+  ]],
+  ['Form & Space', 'feature', [
+    ['compact_form', '紧凑型樹形（小さいまま/中庭）'],
+    ['narrow_branching', '枝張り狭い（狭い空間）'],
+  ]],
+  ['Foliage', 'flora', [
+    ['leaf_translucent', '透ける葉'],
+    ['leaf_bright', '明るい葉'],
+    ['leaf_dark', '色の濃い葉'],
+    ['leaf_variegated_pattern', '斑入り叶'],
+    ['leaf_color_year_round', '通年カラーリーフ'],
+    ['leaf_shiny', 'きらきら葉'],
+    ['new_growth_beautiful', '新芽美'],
+    ['autumn_color', '紅葉・黄葉'],
+    ['leaf_rustling', '葉擦れの音'],
+  ]],
+  ['Flower', 'flora', [
+    ['flower_spring', '春に花'],
+    ['flower_summer', '夏に花'],
+    ['flower_autumn', '秋に花'],
+    ['flower_winter', '冬に花'],
+    ['long_blooming', '長く咲く'],
+    ['showy_flower', '目立つ花'],
+  ]],
+  ['Fragrance', 'flora', [
+    ['leaf_fragrance', '葉の香り'],
+    ['flower_fragrance', '花の香り'],
+  ]],
+  ['Fruit', 'flora', [
+    ['fruit_ornamental', '目立つ実（観賞）'],
+    ['fruit_edible', '食べられる実'],
+    ['fruit_espalier', 'エスパリア仕立て'],
+  ]],
+  ['Bark & Trunk', 'bark', [
+    ['bark_stripe', '縞模様の幹肌'],
+    ['bark_smooth', '平滑な幹肌'],
+    ['bark_thorny', '幹・枝のトゲ'],
+    ['bark_variegated', '斑入りの幹'],
+  ]],
+  ['Tolerance', 'func', [
+    ['disease_pest_resistant', '耐病虫害'],
+    ['exhaust_resistant', '耐排気ガス'],
+    ['low_maintenance', '手間いらず'],
+    ['drought_tolerant', '耐乾燥'],
+    ['poor_soil_tolerant', '耐痩せ地'],
+    ['salt_wind_tolerant', '耐塩風（海の近く）'],
+    ['humid_tolerant', '耐湿気'],
+  ]],
+  ['Function / Structure', 'func', [
+    ['rooftop_garden', '屋上適用'],
+    ['rooftop_unsuitable', '⚠️ 屋上不適用'],
+    ['wind_calm', '穏やかな風'],
+    ['wind_block', '強風防ぐ'],
+    ['sound_barrier', '防音壁'],
+    ['firewall_tree', '防火壁'],
+    ['security_hedge', '防犯生垣'],
+    ['screen_hedge', 'スクリーン'],
+    ['boundary_planting', '境界植栽'],
+    ['container_pot', 'コンテナ向き'],
+    ['hedge_general', '生垣'],
+  ]],
+  ['Placement', 'feature', [
+    ['shade_garden', '日陰の庭'],
+    ['north_garden', '北の庭'],
+    ['exterior_impression', '外廻り印象'],
+    ['approach_perspective', 'アプローチ拡張'],
+    ['warm_zone_garden', '温暖地'],
+  ]],
+  ['Special Use', 'feature', [
+    ['symbol_tree', 'シンボルツリー'],
+    ['auspicious_plant', '縁起物'],
+    ['vegetable_herb', '菜園・ハーブ'],
+  ]],
+  ['Pruning / Shape', 'style', [
+    ['wafu_shitate', '和風仕立て'],
+    ['topiary_western', 'トピアリー（西洋）'],
+    ['conifer_shape', 'コニファー造形'],
+  ]],
+  ['Vines', 'feature', [
+    ['vine_for_fence', 'フェンス用'],
+    ['vine_for_wall', '壁面用'],
+    ['vine_for_pergola', 'パーゴラ・棚'],
+    ['vine_for_ground_climb', '地面・壁面ツタ'],
+  ]],
+  ['Non-Woody', 'feature', [
+    ['lawn_grass', '芝'],
+    ['fern', 'シダ'],
+    ['moss', 'コケ'],
+    ['bamboo', 'タケ'],
+  ]],
+];
+
+const UNIVERSAL_GROUPS = [
+  ['Size', '樹高区分', ['高木','中高木','中木','低木','低木・地被','地被']],
+  ['Light', '必要日照', ['極陰樹','陰樹','陰樹〜中庸樹','中庸樹','中庸樹〜陽樹','陽樹']],
+  ['Persistence', '常緑性', ['常緑','落葉','半常緑','半落葉']],
+  ['Flower Color', '花色', ['赤','ピンク','白','黄・橙','紫・青']],
+  ['Hardiness Zone', '耐寒ゾーン', ['ゾーン4','ゾーン5','ゾーン6','ゾーン7','ゾーン8','ゾーン9','ゾーン10']],
+  ['Climate Belt', '気候帯', ['寒帯','温帯','暖帯','亜熱帯']],
+  ['Region', '地域限定', ['暖地','寒冷地','沖縄','亜熱帯']],
+];
+
+// ===== State =====
+let plants = [];
+const filters = {};       // field → Set of selected values
+let searchText = '';
+
+// ===== Init =====
+fetch('plants.json').then(r => r.json()).then(data => {
+  plants = data;
+  document.querySelector('.count').innerHTML = `Showing <strong id="count">${data.length}</strong> / ${data.length}`;
+  renderFilters();
+  renderResults();
+});
+
+// ===== Filter UI =====
+function renderFilters() {
+  const container = document.getElementById('filters');
+  // Universal first
+  const uniSection = document.createElement('div');
+  uniSection.innerHTML = '<h3 style="font-size:12px;color:#6c6c6c;text-transform:uppercase;letter-spacing:0.05em;margin:10px 4px 4px;">Basic Attributes</h3>';
+  container.appendChild(uniSection);
+  for (const [enLabel, field, values] of UNIVERSAL_GROUPS) {
+    container.appendChild(makeFilterGroup(enLabel, field, values.map(v => [v, v]), field === '樹高区分'));
+  }
+  // Themes
+  const themeSection = document.createElement('div');
+  themeSection.innerHTML = '<h3 style="font-size:12px;color:#6c6c6c;text-transform:uppercase;letter-spacing:0.05em;margin:14px 4px 4px;">Themes</h3>';
+  container.appendChild(themeSection);
+  for (const [enLabel, colorClass, tagList] of THEME_GROUPS) {
+    container.appendChild(makeFilterGroup(enLabel, 'theme_tags', tagList, false, colorClass));
+  }
+}
+
+function makeFilterGroup(enLabel, field, options, openByDefault, colorClass) {
+  const group = document.createElement('div');
+  group.className = 'filter-group' + (openByDefault ? ' open' : '');
+  const counts = countOptions(field, options.map(o => o[0]));
+  const total = options.reduce((s, [v]) => s + (counts[v] || 0), 0);
+  const header = document.createElement('div');
+  header.className = 'filter-header';
+  header.innerHTML = `<span class="filter-title">${enLabel}<small>${total}</small></span><span class="filter-arrow">▶</span>`;
+  header.onclick = () => group.classList.toggle('open');
+  const body = document.createElement('div');
+  body.className = 'filter-body';
+  for (const [value, label] of options) {
+    if (!counts[value]) continue;
+    const chip = document.createElement('span');
+    chip.className = 'chip';
+    if (colorClass) chip.dataset.color = colorClass;
+    chip.innerHTML = `${label}<span class="count">${counts[value]}</span>`;
+    chip.onclick = () => toggleFilter(field, value, chip);
+    body.appendChild(chip);
+  }
+  group.append(header, body);
+  return group;
+}
+
+function countOptions(field, values) {
+  const result = {};
+  for (const v of values) {
+    result[v] = plants.filter(p => {
+      const x = p[field];
+      if (Array.isArray(x)) return x.includes(v);
+      return x === v;
+    }).length;
+  }
+  return result;
+}
+
+function toggleFilter(field, value, chip) {
+  if (!filters[field]) filters[field] = new Set();
+  if (filters[field].has(value)) {
+    filters[field].delete(value);
+    chip.classList.remove('active');
+    if (filters[field].size === 0) delete filters[field];
+  } else {
+    filters[field].add(value);
+    chip.classList.add('active');
+  }
+  document.getElementById('clear-all').disabled = Object.keys(filters).length === 0 && !searchText;
+  renderResults();
+}
+
+document.getElementById('clear-all').onclick = () => {
+  for (const k of Object.keys(filters)) delete filters[k];
+  document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+  document.getElementById('search').value = '';
+  searchText = '';
+  document.getElementById('clear-all').disabled = true;
+  renderResults();
+};
+
+document.getElementById('search').oninput = (e) => {
+  searchText = e.target.value.trim().toLowerCase();
+  document.getElementById('clear-all').disabled = Object.keys(filters).length === 0 && !searchText;
+  renderResults();
+};
+
+// ===== Filter logic =====
+function matchPlant(p) {
+  if (searchText) {
+    const hay = (p.plant_name + ' ' + (p.english_name || '') + ' ' + (p.aliases || []).join(' ')).toLowerCase();
+    if (!hay.includes(searchText)) return false;
+  }
+  for (const [field, values] of Object.entries(filters)) {
+    const pval = p[field];
+    if (Array.isArray(pval)) {
+      // multi-value: ALL selected must be present (AND within a filter group)
+      // → user expects "any of these": OR. But the more useful is AND across groups, OR within.
+      // We'll do OR within (commonly expected).
+      const hasAny = [...values].some(v => pval.includes(v));
+      if (!hasAny) return false;
+    } else {
+      if (!values.has(pval)) return false;
+    }
+  }
+  return true;
+}
+
+// ===== Render =====
+function renderResults() {
+  const matched = plants.filter(matchPlant);
+  document.getElementById('count').textContent = matched.length;
+  const cards = document.getElementById('cards');
+  const empty = document.getElementById('empty');
+  if (matched.length === 0) {
+    cards.style.display = 'none'; empty.style.display = 'block'; return;
+  }
+  cards.style.display = ''; empty.style.display = 'none';
+  cards.innerHTML = '';
+  // Sort: those matching more theme_tags first if filters set; else by source_section_count desc
+  matched.sort((a, b) => (b.source_section_count || 0) - (a.source_section_count || 0));
+  for (const p of matched.slice(0, 200)) {  // limit initial render
+    cards.appendChild(makeCard(p));
+  }
+  if (matched.length > 200) {
+    const hint = document.createElement('div');
+    hint.style.cssText = 'grid-column:1/-1;text-align:center;padding:16px;color:#6c6c6c;font-size:13px;';
+    hint.textContent = `Showing first 200 of ${matched.length}. Refine filters to narrow.`;
+    cards.appendChild(hint);
+  }
+}
+
+function makeCard(p) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.onclick = () => openModal(p);
+  let html = `<div class="card-name">${p.plant_name}</div>`;
+  if (p.english_name) html += `<div class="card-en">${p.english_name}</div>`;
+  html += '<div class="card-attrs">';
+  if (p.樹高区分 && p.樹高区分 !== 'unknown') html += `<span class="attr-chip">${p.樹高区分}</span>`;
+  if (p.必要日照 && p.必要日照 !== 'unknown') html += `<span class="attr-chip">${p.必要日照}</span>`;
+  if (p.常緑性 && p.常緑性 !== 'unknown') html += `<span class="attr-chip">${p.常緑性}</span>`;
+  if (p.花色 && p.花色.length) html += `<span class="attr-chip">花${p.花色.join('・')}</span>`;
+  // Limit theme tags shown
+  if (p.theme_tags && p.theme_tags.length) {
+    const tagsToShow = p.theme_tags.slice(0, 3);
+    for (const tag of tagsToShow) {
+      const jp = tagJapanese(tag);
+      const cls = tagColor(tag);
+      html += `<span class="attr-chip ${cls}">${jp}</span>`;
+    }
+    if (p.theme_tags.length > 3) html += `<span class="attr-chip" style="background:#eee;color:#888">+${p.theme_tags.length - 3}</span>`;
+  }
+  html += '</div>';
+  html += `<div class="card-meta">From ${p.source_section_count} section(s)</div>`;
+  card.innerHTML = html;
+  return card;
+}
+
+// Quick lookup tables for tag → japanese label and color class
+const TAG_JP = {};
+const TAG_COLOR = {};
+for (const [, color, tags] of THEME_GROUPS) {
+  for (const [code, jp] of tags) {
+    TAG_JP[code] = jp;
+    TAG_COLOR[code] = color;
+  }
+}
+function tagJapanese(t) { return TAG_JP[t] || t; }
+function tagColor(t) { return 'tag-' + (TAG_COLOR[t] || 'feature'); }
+
+// ===== Modal =====
+function openModal(p) {
+  const body = document.getElementById('modal-body');
+  let html = `<h2>${p.plant_name}</h2>`;
+  if (p.english_name) html += `<div style="color:#6c6c6c;font-style:italic;margin-bottom:6px">${p.english_name}</div>`;
+  if (p.aliases && p.aliases.length) html += `<div style="font-size:13px;color:#6c6c6c">別名: ${p.aliases.join('、')}</div>`;
+  if (p.cultivars_listed && p.cultivars_listed.length) html += `<div style="font-size:13px;color:#6c6c6c">品種: ${p.cultivars_listed.join('、')}</div>`;
+
+  html += '<div class="modal-section"><h3>Universal Attributes</h3><dl>';
+  for (const [enLabel, field] of [
+    ['Size 樹高区分', '樹高区分'], ['Light 必要日照', '必要日照'], ['Persistence 常緑性', '常緑性'],
+    ['Hardiness Zone', '耐寒ゾーン'], ['Climate', '気候帯'], ['Min Temp', '平均最低気温'],
+    ['Flower Color', '花色'], ['Region', '地域限定']
+  ]) {
+    const v = p[field];
+    if (v && v !== 'unknown' && (!Array.isArray(v) || v.length)) {
+      const dv = Array.isArray(v) ? v.join('、') : v;
+      html += `<dt>${enLabel}</dt><dd>${dv}</dd>`;
+    }
+  }
+  html += '</dl></div>';
+
+  if (p.theme_tags && p.theme_tags.length) {
+    html += '<div class="modal-section"><h3>Themes</h3><div>';
+    for (const tag of p.theme_tags) {
+      const cls = tagColor(tag);
+      html += `<span class="attr-chip ${cls}" style="margin:3px">${tagJapanese(tag)}</span>`;
+    }
+    html += '</div></div>';
+  }
+
+  // Sub-attributes
+  const SUB = [
+    ['Hedge Purpose', 'hedge_purpose'], ['Shitate Type', 'shitate_type'],
+    ['Conifer Shape', 'conifer_shape_type'], ['Bark Pattern', 'bark_stripe_pattern'],
+    ['Lawn Type', 'lawn_grass_type'], ['Pergola Category', 'pergola_category'],
+    ['Autumn Color', 'autumn_color_type'], ['Leaf System', 'leaf_color_system'],
+    ['Symbol Tree Category', 'symbol_tree_category'], ['Bloom Period', 'bloom_period'],
+    ['Understory Light', 'understory_light'], ['Garden Orientation', 'garden_orientation'],
+    ['Fruit Color', 'fruit_color'], ['Leaf Persistence Sub', 'leaf_persistence_subcat'],
+  ];
+  const subEntries = SUB.filter(([_, f]) => p[f] && p[f].length);
+  if (subEntries.length) {
+    html += '<div class="modal-section"><h3>Sub-attributes</h3><dl>';
+    for (const [enLabel, field] of subEntries) {
+      html += `<dt>${enLabel}</dt><dd>${p[field].join('、')}</dd>`;
+    }
+    html += '</dl></div>';
+  }
+
+  if (p.plant_attribute_notes) {
+    html += `<div class="modal-section"><h3>Notes</h3><div style="font-size:13px;color:#444">${p.plant_attribute_notes.replace(/\|\|/g, '<br>')}</div></div>`;
+  }
+  if (p.parenthetical_notes) {
+    html += `<div class="modal-section"><h3>Annotations</h3><div style="font-size:13px;color:#444">${p.parenthetical_notes}</div></div>`;
+  }
+  if (p.source_pages) {
+    html += `<div class="modal-section"><h3>Source Pages</h3><div style="font-size:12px;color:#6c6c6c">p.${p.source_pages}</div></div>`;
+  }
+
+  body.innerHTML = html;
+  document.getElementById('modal-bg').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
+document.getElementById('modal-bg').onclick = (e) => {
+  if (e.target.id === 'modal-bg') closeModal();
+};
+
+// ===== Mobile filter toggle =====
+document.getElementById('filter-toggle').onclick = () => {
+  document.getElementById('sidebar').classList.add('open');
+  document.getElementById('backdrop').classList.add('show');
+};
+document.getElementById('backdrop').onclick = () => {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('backdrop').classList.remove('show');
+};
+</script>
+</body>
+</html>
