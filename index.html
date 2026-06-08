@@ -539,7 +539,8 @@ function openModal(p) {
   if (p.aliases && p.aliases.length) html += `<div style="font-size:13px;color:#6c6c6c">別名: ${p.aliases.join('、')}</div>`;
   if (p.cultivars_listed && p.cultivars_listed.length) html += `<div style="font-size:13px;color:#6c6c6c">品種: ${p.cultivars_listed.join('、')}</div>`;
 
-  html += '<div class="modal-section"><h3>Universal Attributes</h3><dl>';
+  // 先 build 内容，只有非空才输出 section heading
+  let uniHtml = '';
   for (const [enLabel, field] of [
     ['Size 樹高区分', '樹高区分'], ['Light 必要日照', '必要日照'], ['Persistence 常緑性', '常緑性'],
     ['Hardiness Zone', '耐寒ゾーン'], ['Climate', '気候帯'], ['Min Temp', '平均最低気温'],
@@ -549,10 +550,10 @@ function openModal(p) {
     if (Array.isArray(v)) v = v.filter(x => x && x !== 'unknown');
     if (v && v !== 'unknown' && (!Array.isArray(v) || v.length)) {
       const dv = Array.isArray(v) ? v.join('、') : v;
-      html += `<dt>${enLabel}</dt><dd>${dv}</dd>`;
+      uniHtml += `<dt>${enLabel}</dt><dd>${dv}</dd>`;
     }
   }
-  html += '</dl></div>';
+  if (uniHtml) html += `<div class="modal-section"><h3>Universal Attributes</h3><dl>${uniHtml}</dl></div>`;
 
   if (p.theme_tags && p.theme_tags.length) {
     html += '<div class="modal-section"><h3>Themes</h3><div>';
@@ -587,9 +588,6 @@ function openModal(p) {
   }
   if (p.parenthetical_notes) {
     html += `<div class="modal-section"><h3>Annotations</h3><div style="font-size:13px;color:#444">${p.parenthetical_notes}</div></div>`;
-  }
-  if (p.source_pages) {
-    html += `<div class="modal-section"><h3>Source Pages</h3><div style="font-size:12px;color:#6c6c6c">p.${p.source_pages}</div></div>`;
   }
 
   body.innerHTML = html;
