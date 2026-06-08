@@ -243,12 +243,37 @@ const THEME_GROUPS = [
     ['style_ethnic_tropical', 'エスニック'],
     ['style_latin_dry', '中南米風'],
   ]],
-  ['Wildlife', 'feature', [
-    ['bird_friendly', '小鳥が遊ぶ'],
+  ['Placement', 'feature', [
+    ['shade_garden', '日陰の庭'],
+    ['north_garden', '北の庭'],
+    ['exterior_impression', '外廻り印象'],
+    ['approach_perspective', 'アプローチ拡張'],
+    ['warm_zone_garden', '温暖地'],
+  ]],
+  ['Function / Structure', 'func', [
+    ['rooftop_garden', '屋上適用'],
+    ['rooftop_unsuitable', '⚠️ 屋上不適用'],
+    ['wind_calm', '穏やかな風'],
+    ['wind_block', '強風防ぐ'],
+    ['sound_barrier', '防音壁'],
+    ['firewall_tree', '防火壁'],
+    ['security_hedge', '防犯生垣'],
+    ['screen_hedge', 'スクリーン'],
+    ['boundary_planting', '境界植栽'],
+    ['container_pot', 'コンテナ向き'],
+    ['hedge_general', '生垣'],
   ]],
   ['Form & Space', 'feature', [
     ['compact_form', '紧凑型樹形（小さいまま/中庭）'],
     ['narrow_branching', '枝張り狭い（狭い空間）'],
+  ]],
+  ['Flower', 'flora', [
+    ['flower_spring', '春に花'],
+    ['flower_summer', '夏に花'],
+    ['flower_autumn', '秋に花'],
+    ['flower_winter', '冬に花'],
+    ['long_blooming', '長く咲く'],
+    ['showy_flower', '目立つ花'],
   ]],
   ['Foliage', 'flora', [
     ['leaf_translucent', '透ける葉'],
@@ -260,14 +285,6 @@ const THEME_GROUPS = [
     ['new_growth_beautiful', '新芽美'],
     ['autumn_color', '紅葉・黄葉'],
     ['leaf_rustling', '葉擦れの音'],
-  ]],
-  ['Flower', 'flora', [
-    ['flower_spring', '春に花'],
-    ['flower_summer', '夏に花'],
-    ['flower_autumn', '秋に花'],
-    ['flower_winter', '冬に花'],
-    ['long_blooming', '長く咲く'],
-    ['showy_flower', '目立つ花'],
   ]],
   ['Fragrance', 'flora', [
     ['leaf_fragrance', '葉の香り'],
@@ -293,41 +310,24 @@ const THEME_GROUPS = [
     ['salt_wind_tolerant', '耐塩風（海の近く）'],
     ['humid_tolerant', '耐湿気'],
   ]],
-  ['Function / Structure', 'func', [
-    ['rooftop_garden', '屋上適用'],
-    ['rooftop_unsuitable', '⚠️ 屋上不適用'],
-    ['wind_calm', '穏やかな風'],
-    ['wind_block', '強風防ぐ'],
-    ['sound_barrier', '防音壁'],
-    ['firewall_tree', '防火壁'],
-    ['security_hedge', '防犯生垣'],
-    ['screen_hedge', 'スクリーン'],
-    ['boundary_planting', '境界植栽'],
-    ['container_pot', 'コンテナ向き'],
-    ['hedge_general', '生垣'],
-  ]],
-  ['Placement', 'feature', [
-    ['shade_garden', '日陰の庭'],
-    ['north_garden', '北の庭'],
-    ['exterior_impression', '外廻り印象'],
-    ['approach_perspective', 'アプローチ拡張'],
-    ['warm_zone_garden', '温暖地'],
-  ]],
-  ['Special Use', 'feature', [
-    ['symbol_tree', 'シンボルツリー'],
-    ['auspicious_plant', '縁起物'],
-    ['vegetable_herb', '菜園・ハーブ'],
+  ['Vines', 'feature', [
+    ['vine_for_fence', 'フェンス用'],
+    ['vine_for_wall', '壁面用'],
+    ['vine_for_pergola', 'パーゴラ・棚'],
+    ['vine_for_ground_climb', '地面・壁面ツタ'],
   ]],
   ['Pruning / Shape', 'style', [
     ['wafu_shitate', '和風仕立て'],
     ['topiary_western', 'トピアリー（西洋）'],
     ['conifer_shape', 'コニファー造形'],
   ]],
-  ['Vines', 'feature', [
-    ['vine_for_fence', 'フェンス用'],
-    ['vine_for_wall', '壁面用'],
-    ['vine_for_pergola', 'パーゴラ・棚'],
-    ['vine_for_ground_climb', '地面・壁面ツタ'],
+  ['Special Use', 'feature', [
+    ['symbol_tree', 'シンボルツリー'],
+    ['auspicious_plant', '縁起物'],
+    ['vegetable_herb', '菜園・ハーブ'],
+  ]],
+  ['Wildlife', 'feature', [
+    ['bird_friendly', '小鳥が遊ぶ'],
   ]],
   ['Non-Woody', 'feature', [
     ['lawn_grass', '芝'],
@@ -339,8 +339,8 @@ const THEME_GROUPS = [
 
 const UNIVERSAL_GROUPS = [
   ['Size', '樹高区分', ['高木','中高木','中木','低木','低木・地被','地被']],
-  ['Light', '必要日照', ['極陰樹','陰樹','陰樹〜中庸樹','中庸樹','中庸樹〜陽樹','陽樹']],
   ['Persistence', '常緑性', ['常緑','落葉','半常緑','半落葉']],
+  ['Light', '必要日照', ['極陰樹','陰樹','陰樹〜中庸樹','中庸樹','中庸樹〜陽樹','陽樹']],
   ['Flower Color', '花色', ['赤','ピンク','白','黄・橙','紫・青']],
   ['Climate Belt', '気候帯', ['寒帯','温帯','暖帯','亜熱帯']],
   ['Hardiness Zone', '耐寒ゾーン', ['ゾーン4','ゾーン5','ゾーン6','ゾーン7','ゾーン8','ゾーン9','ゾーン10']],
