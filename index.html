@@ -426,7 +426,8 @@ function makeFilterGroup(enLabel, field, options, openByDefault, colorClass) {
     chip.className = 'chip';
     if (colorClass) chip.dataset.color = colorClass;
     chip.innerHTML = `${label}<span class="count">${counts[value]}</span>`;
-    chip.onclick = () => toggleFilter(field, value, chip);
+    // 用 enLabel 作为 groupKey（每组都唯一），保证不同主题组互不并集
+    chip.onclick = () => toggleFilter(enLabel, field, value, chip);
     body.appendChild(chip);
   }
   group.append(header, body);
@@ -445,14 +446,17 @@ function countOptions(field, values) {
   return result;
 }
 
-function toggleFilter(field, value, chip) {
-  if (!filters[field]) filters[field] = new Set();
-  if (filters[field].has(value)) {
-    filters[field].delete(value);
+function toggleFilter(groupKey, field, value, chip) {
+  // filters[groupKey] = { field, values: Set(...) }
+  // 同 groupKey 内多选 → OR；不同 groupKey 之间 → AND
+  if (!filters[groupKey]) filters[groupKey] = { field, values: new Set() };
+  const set = filters[groupKey].values;
+  if (set.has(value)) {
+    set.delete(value);
     chip.classList.remove('active');
-    if (filters[field].size === 0) delete filters[field];
+    if (set.size === 0) delete filters[groupKey];
   } else {
-    filters[field].add(value);
+    set.add(value);
     chip.classList.add('active');
   }
   document.getElementById('clear-all').disabled = Object.keys(filters).length === 0 && !searchText;
@@ -475,21 +479,23 @@ document.getElementById('search').oninput = (e) => {
 };
 
 // ===== Filter logic =====
+// 同一筛选组（如 Garden Style 内多个 tag）→ OR
+// 不同筛选组之间（如 Garden Style 和風 + Function 防音壁）→ AND
 function matchPlant(p) {
   if (searchText) {
     if (!p._search || !p._search.includes(searchText)) return false;
   }
-  for (const [field, values] of Object.entries(filters)) {
+  for (const groupKey in filters) {
+    const { field, values } = filters[groupKey];
     const pval = p[field];
-    if (Array.isArray(pval)) {
-      // multi-value: ALL selected must be present (AND within a filter group)
-      // → user expects "any of these": OR. But the more useful is AND across groups, OR within.
-      // We'll do OR within (commonly expected).
-      const hasAny = [...values].some(v => pval.includes(v));
-      if (!hasAny) return false;
-    } else {
-      if (!values.has(pval)) return false;
+    // 转成 array 方便统一处理
+    const arr = Array.isArray(pval) ? pval : (pval ? [pval] : []);
+    // 组内 OR：只要 plant 的字段值里包含任一选中的值即可
+    let hasAny = false;
+    for (const v of values) {
+      if (arr.includes(v)) { hasAny = true; break; }
     }
+    if (!hasAny) return false;  // 这一组没命中 → AND 关系，整体被剔除
   }
   return true;
 }
