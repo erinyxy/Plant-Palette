@@ -354,10 +354,39 @@ let searchText = '';
 // ===== Init =====
 fetch('plants.json').then(r => r.json()).then(data => {
   plants = data;
+  buildSearchIndex();
   document.querySelector('.count').innerHTML = `Showing <strong id="count">${data.length}</strong> / ${data.length}`;
   renderFilters();
   renderResults();
 });
+
+// ===== Search index =====
+// 给每株植物 build 一个 _search 字段，包含可见的所有 attribute（去掉 unknown）
+function buildSearchIndex() {
+  const SUB_FIELDS = ['hedge_purpose','shitate_type','conifer_shape_type','bark_stripe_pattern',
+    'lawn_grass_type','pergola_category','autumn_color_type','leaf_color_system',
+    'symbol_tree_category','bloom_period','understory_light','garden_orientation',
+    'fruit_color','leaf_persistence_subcat'];
+  const UNI_FIELDS = ['常緑性','樹高区分','必要日照','耐寒ゾーン','気候帯','平均最低気温','地域限定'];
+  for (const p of plants) {
+    const parts = [p.plant_name, p.english_name || ''];
+    if (p.aliases) parts.push(...p.aliases);
+    if (p.cultivars_listed) parts.push(...p.cultivars_listed);
+    for (const f of UNI_FIELDS) {
+      const v = p[f];
+      if (v && v !== 'unknown') parts.push(v);
+    }
+    if (p.花色) parts.push(...p.花色.filter(c => c !== 'unknown'));
+    for (const f of SUB_FIELDS) {
+      if (p[f]) parts.push(...p[f]);
+    }
+    // theme_tags 转为日文标签让用户能搜「和風」等
+    if (p.theme_tags) {
+      for (const t of p.theme_tags) parts.push(TAG_JP[t] || t);
+    }
+    p._search = parts.join(' ').toLowerCase();
+  }
+}
 
 // ===== Filter UI =====
 function renderFilters() {
@@ -448,8 +477,7 @@ document.getElementById('search').oninput = (e) => {
 // ===== Filter logic =====
 function matchPlant(p) {
   if (searchText) {
-    const hay = (p.plant_name + ' ' + (p.english_name || '') + ' ' + (p.aliases || []).join(' ')).toLowerCase();
-    if (!hay.includes(searchText)) return false;
+    if (!p._search || !p._search.includes(searchText)) return false;
   }
   for (const [field, values] of Object.entries(filters)) {
     const pval = p[field];
