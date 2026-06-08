@@ -1463,12 +1463,12 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "アリドウシ",
+"plant_name": "アリドオシ",
 "english_name": "Damnacanthus indicus",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
-"樹高区分": "低木・地被",
+"樹高区分": "低木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -1555,7 +1555,7 @@
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "落葉",
-"樹高区分": "中木",
+"樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -8696,7 +8696,7 @@
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
-"樹高区分": "地被",
+"樹高区分": "低木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -8797,7 +8797,7 @@
 },
 {
 "plant_name": "サルビアグラニティカ",
-"english_name": "Salvia × jamensis",
+"english_name": "Blue Anise Sage (Salvia guaranitica)",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
@@ -11994,7 +11994,7 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "ゼラニュウム",
+"plant_name": "ゼラニウム",
 "english_name": "Geranium / Pelargonium",
 "aliases": [],
 "cultivars_listed": [],
@@ -14234,7 +14234,7 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "ドイットウヒ",
+"plant_name": "ドイツトウヒ",
 "english_name": "Norway Spruce (Picea abies)",
 "aliases": [],
 "cultivars_listed": [],
@@ -16461,7 +16461,7 @@
 "english_name": "Viburnum japonicum",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "落葉",
+"常緑性": "常緑",
 "樹高区分": "低木・地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
@@ -18891,6 +18891,51 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ビナンカズラ",
+"english_name": "Kadsura japonica",
+"aliases": [
+"サネカズラ"
+],
+"cultivars_listed": [],
+"常緑性": "半落葉",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"vine_for_fence",
+"vine_for_wall"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [
+"常緑（半落葉）"
+],
+"source_section_count": 2,
+"source_pages": [
+"139",
+"143"
+],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ビヨウヤナギ",
 "english_name": "Hypericum monogynum",
 "aliases": [],
@@ -19024,49 +19069,6 @@
 {
 "plant_name": "ピクノニア",
 "english_name": "Pyrostegia venusta",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "半落葉",
-"樹高区分": "低木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
-"vine_for_fence",
-"vine_for_wall"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [
-"常緑（半落葉）"
-],
-"source_section_count": 2,
-"source_pages": [
-"139",
-"143"
-],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "ピナンカズラ",
-"english_name": "Pinan-kazura",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "半落葉",
@@ -20305,7 +20307,7 @@
 "cultivars_listed": [],
 "常緑性": "半常緑",
 "樹高区分": "低木・地被",
-"必要日照": "unknown",
+"必要日照": "陽樹",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
 "平均最低気温": "unknown",
@@ -20330,45 +20332,9 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
-"126"
-],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "プリペット",
-"english_name": "Privet (Ligustrum sinense)",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "半常緑",
-"樹高区分": "低木・地被",
-"必要日照": "陽樹",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [
+"126",
 "157"
 ],
 "plant_attribute_notes": "",
@@ -20669,7 +20635,7 @@
 },
 {
 "plant_name": "ヘデラヘリックスゴールドハート",
-"english_name": "Hedera helix 'Gold Heart'",
+"english_name": "Hedera helix 'Goldheart'",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
@@ -20683,45 +20649,7 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"leaf_shiny"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [
-"106"
-],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "ヘデラヘリックスゴールドハード",
-"english_name": "Hedera helix 'Goldheart'",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "常緑",
-"樹高区分": "地被",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
+"leaf_shiny",
 "vine_for_ground_climb"
 ],
 "hedge_purpose": [],
@@ -20738,8 +20666,9 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
+"106",
 "149"
 ],
 "plant_attribute_notes": "",
@@ -23501,7 +23430,7 @@
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "落葉",
-"樹高区分": "低木・地被",
+"樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
