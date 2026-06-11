@@ -338,8 +338,12 @@ const THEME_GROUPS = [
 ];
 
 const UNIVERSAL_GROUPS = [
-  ['Size', '樹高区分', ['高木','中高木','中木','低木','低木・地被','地被']],
-  ['Persistence', '常緑性', ['常緑','落葉','半常緑','半落葉']],
+  ['Size', '樹高区分', ['高木','中高木','中木','低木','地被']],
+  ['Persistence', '常緑性', [
+    ['木本', ['常緑','落葉','半常緑','半落葉']],
+    ['草本', ['多年草','宿根草','一年草','球根草']],
+    ['芝', ['暖地型芝','寒地型芝']],
+  ]],
   ['Light', '必要日照', ['極陰樹','陰樹','陰樹〜中庸樹','中庸樹','中庸樹〜陽樹','陽樹']],
   ['Flower Color', '花色', ['赤','ピンク','白','黄・橙','紫・青']],
   ['Climate Belt', '気候帯', ['寒帯','温帯','暖帯','亜熱帯']],
@@ -397,7 +401,13 @@ function renderFilters() {
   uniHeader.textContent = 'Basic Attributes';
   container.appendChild(uniHeader);
   for (const [enLabel, field, values] of UNIVERSAL_GROUPS) {
-    container.appendChild(makeFilterGroup(enLabel, field, values.map(v => [v, v]), field === '樹高区分'));
+    // 分段结构 [[subTitle, [v1,v2,...]], ...] 用于 Persistence
+    const isSectioned = Array.isArray(values[0]) && Array.isArray(values[0][1]);
+    if (isSectioned) {
+      container.appendChild(makeSectionedFilterGroup(enLabel, field, values, field === '樹高区分'));
+    } else {
+      container.appendChild(makeFilterGroup(enLabel, field, values.map(v => [v, v]), field === '樹高区分'));
+    }
   }
   // Themes
   const themeHeader = document.createElement('div');
@@ -429,6 +439,39 @@ function makeFilterGroup(enLabel, field, options, openByDefault, colorClass) {
     // 用 enLabel 作为 groupKey（每组都唯一），保证不同主题组互不并集
     chip.onclick = () => toggleFilter(enLabel, field, value, chip);
     body.appendChild(chip);
+  }
+  group.append(header, body);
+  return group;
+}
+
+function makeSectionedFilterGroup(enLabel, field, sections, openByDefault) {
+  // sections: [[subTitle, [v1,v2,...]], ...]
+  const group = document.createElement('div');
+  group.className = 'filter-group' + (openByDefault ? ' open' : '');
+  const allValues = sections.flatMap(([, vs]) => vs);
+  const counts = countOptions(field, allValues);
+  const total = allValues.reduce((s, v) => s + (counts[v] || 0), 0);
+  const header = document.createElement('div');
+  header.className = 'filter-header';
+  header.innerHTML = `<span class="filter-title">${enLabel}<small>${total}</small></span><span class="filter-arrow">▶</span>`;
+  header.onclick = () => group.classList.toggle('open');
+  const body = document.createElement('div');
+  body.className = 'filter-body';
+  for (const [subTitle, vs] of sections) {
+    const visible = vs.filter(v => counts[v]);
+    if (!visible.length) continue;
+    const sub = document.createElement('div');
+    sub.className = 'filter-subsection';
+    sub.style.cssText = 'width:100%;font-size:11px;color:#888;margin:6px 0 2px;letter-spacing:0.5px;';
+    sub.textContent = subTitle;
+    body.appendChild(sub);
+    for (const value of visible) {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.innerHTML = `${value}<span class="count">${counts[value]}</span>`;
+      chip.onclick = () => toggleFilter(enLabel, field, value, chip);
+      body.appendChild(chip);
+    }
   }
   group.append(header, body);
   return group;
