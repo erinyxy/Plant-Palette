@@ -6,7 +6,7 @@
 <title>Plant Palette · 植栽パレット</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
 <style>
 :root {
   --green: #5a8a52;
@@ -32,10 +32,19 @@ header {
   position: sticky; top: 0; z-index: 100;
   padding: 14px 20px; display: flex; align-items: center; gap: 18px;
 }
+.brand-wrap {
+  display: flex; align-items: flex-end; gap: 10px;
+}
 .brand {
   font-family: 'DM Serif Display', serif; font-style: italic;
   font-size: 28px; color: var(--green-dark); letter-spacing: 0.01em;
   white-space: nowrap; line-height: 1;
+}
+.byline {
+  font-family: 'Noto Sans', -apple-system, sans-serif;
+  font-size: 12px; color: var(--green); opacity: 0.75;
+  white-space: nowrap; line-height: 1;
+  padding-bottom: 2px;
 }
 #search {
   flex: 1; max-width: 400px;
@@ -181,6 +190,8 @@ aside {
 @media (max-width: 768px) {
   header { padding: 10px 14px; flex-wrap: wrap; gap: 12px; }
   .brand { font-size: 22px; }
+  .brand-wrap { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .byline { font-size: 10px; padding-bottom: 0; }
   #search { font-size: 16px; max-width: none; flex: 1; min-width: 0; }
   #filter-toggle { display: block; }
   main { display: block; }
@@ -204,7 +215,10 @@ aside {
 <body>
 
 <header>
-  <div class="brand">Plant Palette</div>
+  <div class="brand-wrap">
+    <div class="brand">Plant Palette</div>
+    <div class="byline">from Erin's Lab</div>
+  </div>
   <button id="filter-toggle">≡ Filters</button>
   <input type="text" id="search" placeholder="Search plants by name or attributes…">
   <span class="count">Showing <strong id="count">0</strong> / 593</span>
