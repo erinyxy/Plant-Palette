@@ -226,6 +226,7 @@ aside {
   display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--border);
 }
 .case-layer:first-of-type { margin-top: 8px; }
+.case-area-name { font-size: 13px; font-weight: 600; color: var(--green); margin: 14px 0 2px; }
 .case-layer-label { width: 64px; flex-shrink: 0; font-size: 13px; color: var(--text-soft); padding-top: 3px; }
 .case-plants { display: flex; flex-wrap: wrap; gap: 6px; }
 .case-plant {
@@ -656,6 +657,19 @@ function renderCases() {
   for (const c of matched) wrap.appendChild(makeCaseCard(c));
 }
 
+function renderLayers(layers) {
+  let html = '';
+  for (const [layer, names] of Object.entries(layers || {})) {
+    html += `<div class="case-layer"><div class="case-layer-label">${layer}</div><div class="case-plants">`;
+    for (const n of names) {
+      const known = plantNames.has(n);
+      html += `<span class="case-plant${known ? '' : ' missing'}" data-plant="${known ? n : ''}">${n}</span>`;
+    }
+    html += '</div></div>';
+  }
+  return html;
+}
+
 function makeCaseCard(c) {
   const card = document.createElement('div');
   card.className = 'case-card';
@@ -665,13 +679,13 @@ function makeCaseCard(c) {
     for (const [k, v] of Object.entries(c.context)) html += `<span>${k}：${v}</span>`;
     html += '</div>';
   }
-  for (const [layer, names] of Object.entries(c.layers || {})) {
-    html += `<div class="case-layer"><div class="case-layer-label">${layer}</div><div class="case-plants">`;
-    for (const n of names) {
-      const known = plantNames.has(n);
-      html += `<span class="case-plant${known ? '' : ' missing'}" data-plant="${known ? n : ''}">${n}</span>`;
+  if (Array.isArray(c.areas)) {
+    for (const area of c.areas) {
+      html += `<div class="case-area-name">${area.name}</div>`;
+      html += renderLayers(area.layers);
     }
-    html += '</div></div>';
+  } else {
+    html += renderLayers(c.layers);
   }
   if (c.design_note) html += `<div class="case-note">${c.design_note}</div>`;
   if (c.source) {
