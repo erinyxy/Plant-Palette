@@ -111,11 +111,21 @@ aside {
 .chip .count { color: var(--text-soft); margin-left: 4px; font-size: 11px; }
 .chip.active .count { color: rgba(255,255,255,0.8); }
 
+.sidebar-head {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--card);
+  margin: -16px -16px 8px; padding: 16px 16px 10px;
+  border-bottom: 1px solid var(--border);
+}
 #clear-all {
-  width: 100%; padding: 8px; margin-bottom: 12px;
+  width: 100%; padding: 8px;
   background: transparent; color: var(--text-soft);
   border: 1px solid var(--border); border-radius: 6px;
   font-size: 13px; cursor: pointer;
+}
+#clear-all:not(:disabled) {
+  border-color: var(--green); color: var(--green-dark);
+  background: var(--green-light); font-weight: 600;
 }
 #clear-all:hover { background: var(--green-light); color: var(--green-dark); }
 #clear-all:disabled { opacity: 0.4; cursor: not-allowed; }
@@ -231,7 +241,9 @@ aside {
 
 <main>
   <aside id="sidebar">
-    <button id="clear-all" disabled>Clear all filters</button>
+    <div class="sidebar-head">
+      <button id="clear-all" disabled>Clear all filters</button>
+    </div>
     <div id="filters"></div>
   </aside>
   <section id="results">
@@ -519,8 +531,17 @@ function toggleFilter(groupKey, field, value, chip) {
     set.add(value);
     chip.classList.add('active');
   }
-  document.getElementById('clear-all').disabled = Object.keys(filters).length === 0 && !searchText;
+  updateClearButton();
   renderResults();
+}
+
+// 统计当前激活的 filter 数（各组选中值之和）并刷新清除按钮的文案/状态
+function updateClearButton() {
+  let n = 0;
+  for (const k in filters) n += filters[k].values.size;
+  const btn = document.getElementById('clear-all');
+  btn.disabled = n === 0 && !searchText;
+  btn.textContent = n > 0 ? `Clear filters (${n})` : 'Clear all filters';
 }
 
 document.getElementById('clear-all').onclick = () => {
@@ -528,13 +549,13 @@ document.getElementById('clear-all').onclick = () => {
   document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
   document.getElementById('search').value = '';
   searchText = '';
-  document.getElementById('clear-all').disabled = true;
+  updateClearButton();
   renderResults();
 };
 
 document.getElementById('search').oninput = (e) => {
   searchText = e.target.value.trim().toLowerCase();
-  document.getElementById('clear-all').disabled = Object.keys(filters).length === 0 && !searchText;
+  updateClearButton();
   renderResults();
 };
 
