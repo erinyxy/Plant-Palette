@@ -125,6 +125,8 @@
 "地域限定": "",
 "theme_tags": [
 "approach_perspective",
+"drought_tolerant",
+"style_zoki_bayashi",
 "wind_calm"
 ],
 "hedge_purpose": [],
@@ -141,7 +143,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 4,
+"source_section_count": 6,
 "source_pages": [
 "114",
 "122",
@@ -168,7 +170,10 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"bark_smooth"
+"bark_smooth",
+"fruit_ornamental",
+"low_maintenance",
+"style_zoki_bayashi"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -184,7 +189,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 4,
 "source_pages": [
 "118"
 ],
@@ -338,7 +343,9 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"autumn_color",
 "bark_variegated",
+"flower_spring",
 "leaf_translucent",
 "style_zoki_bayashi",
 "wind_calm"
@@ -359,7 +366,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 7,
+"source_section_count": 10,
 "source_pages": [
 "101",
 "114",
@@ -2757,7 +2764,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"円錐形"
+"円錐形（広・狭）"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -3255,6 +3262,7 @@
 "approach_perspective",
 "bird_friendly",
 "compact_form",
+"flower_summer",
 "fruit_ornamental",
 "humid_tolerant",
 "leaf_translucent",
@@ -3286,7 +3294,7 @@
 "白"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 16,
+"source_section_count": 18,
 "source_pages": [
 "101",
 "113",
@@ -3420,7 +3428,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"円錐形"
+"円錐形（広・狭）"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -5759,7 +5767,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"半球形"
+"半球形・球形"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -6974,7 +6982,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 5,
+"source_section_count": 6,
 "source_pages": [
 "118",
 "122",
@@ -8279,7 +8287,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 6,
+"source_section_count": 7,
 "source_pages": [
 "118",
 "122",
@@ -8353,7 +8361,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"半球形"
+"半球形・球形"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -11613,7 +11621,6 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"匍匐形",
 "匍匐（ほふく）形"
 ],
 "bark_stripe_pattern": [],
@@ -12704,7 +12711,8 @@
 "fruit_ornamental",
 "leaf_rustling",
 "leaf_shiny",
-"low_maintenance"
+"low_maintenance",
+"style_zoki_bayashi"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -12724,7 +12732,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 11,
+"source_section_count": 12,
 "source_pages": [
 "106",
 "120",
@@ -17046,7 +17054,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"匍匐形"
+"匍匐（ほふく）形"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -21138,7 +21146,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"匍匐形"
+"匍匐（ほふく）形"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -21178,7 +21186,7 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"半球形"
+"半球形・球形"
 ],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
@@ -26490,7 +26498,6 @@
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
-"円錐形",
 "円錐形（広・狭）"
 ],
 "bark_stripe_pattern": [],
