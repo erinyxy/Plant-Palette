@@ -28,7 +28,8 @@
 "low_maintenance",
 "salt_wind_tolerant",
 "shade_garden",
-"sound_barrier"
+"sound_barrier",
+"style_tea_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -48,7 +49,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 15,
+"source_section_count": 16,
 "source_pages": [
 "106",
 "111",
@@ -848,7 +849,8 @@
 "humid_tolerant",
 "long_blooming",
 "new_growth_beautiful",
-"showy_flower"
+"showy_flower",
+"style_english_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -866,7 +868,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 9,
+"source_section_count": 10,
 "source_pages": [
 "102",
 "108",
@@ -1451,6 +1453,7 @@
 "screen_hedge",
 "sound_barrier",
 "style_japanese_classic",
+"style_tea_garden",
 "wafu_shitate"
 ],
 "hedge_purpose": [],
@@ -1475,7 +1478,7 @@
 "leaf_persistence_subcat": [
 "常緑（半常緑）"
 ],
-"source_section_count": 15,
+"source_section_count": 16,
 "source_pages": [
 "101",
 "114",
@@ -2935,7 +2938,8 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"moss"
+"moss",
+"style_tea_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -2951,7 +2955,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "148"
 ],
@@ -3493,7 +3497,8 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"moss"
+"moss",
+"style_tea_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -3509,7 +3514,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "148"
 ],
@@ -5271,6 +5276,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ガーベラ",
+"english_name": "Gerbera (Gerbera jamesonii)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_english_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "キウイ",
 "english_name": "Kiwifruit (Actinidia deliciosa)",
 "aliases": [],
@@ -6117,8 +6160,12 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"drought_tolerant",
 "flower_summer",
-"rooftop_garden"
+"leaf_variegated_pattern",
+"rooftop_garden",
+"shade_garden",
+"style_english_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -6134,7 +6181,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 3,
+"source_section_count": 7,
 "source_pages": [
 "111",
 "114",
@@ -6915,7 +6962,9 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"flower_winter"
+"flower_winter",
+"shade_garden",
+"style_english_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -6933,7 +6982,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 3,
+"source_section_count": 5,
 "source_pages": [
 "111",
 "114",
@@ -7888,6 +7937,44 @@
 "source_pages": [
 "151"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "コチョウワビスケ",
+"english_name": "Wabisuke Camellia (Camellia 'Kocho-wabisuke')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_tea_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -9028,6 +9115,44 @@
 "source_pages": [
 "152"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "サルビアネモローサ",
+"english_name": "Woodland Sage (Salvia nemorosa)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_english_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -13357,6 +13482,45 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "チューリップ",
+"english_name": "Tulip (Tulipa spp.)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "球根草",
+"地被分類": "球根草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"flower_spring",
+"style_english_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ツキヌキニンドウ",
 "english_name": "Coral Honeysuckle (Lonicera sempervirens)",
 "aliases": [],
@@ -16488,12 +16652,12 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "ハイゴケ",
-"english_name": "Trailing Moss (Hypnum plumaeforme)",
+"plant_name": "ノースポール",
+"english_name": "Snow Daisy (Mauranthemum paludosum)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "unknown",
-"地被分類": "",
+"常緑性": "一年草",
+"地被分類": "一年草",
 "樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
@@ -16504,7 +16668,7 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"moss"
+"style_english_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -16521,6 +16685,45 @@
 "fruit_color": [],
 "leaf_persistence_subcat": [],
 "source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ハイゴケ",
+"english_name": "Trailing Moss (Hypnum plumaeforme)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "unknown",
+"地被分類": "",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"moss",
+"style_tea_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
 "source_pages": [
 "148"
 ],
@@ -18288,6 +18491,46 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "パンジー",
+"english_name": "Pansy (Viola × wittrockiana)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "一年草",
+"地被分類": "一年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"flower_winter",
+"long_blooming",
+"style_english_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 3,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ヒイラギ",
 "english_name": "Holly Olive (Osmanthus heterophyllus)",
 "aliases": [],
@@ -18490,7 +18733,8 @@
 "compact_form",
 "exhaust_resistant",
 "low_maintenance",
-"style_japanese_classic"
+"style_japanese_classic",
+"style_tea_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -18510,7 +18754,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 10,
+"source_section_count": 11,
 "source_pages": [
 "114",
 "121",
@@ -19317,6 +19561,46 @@
 "143",
 "157"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ビオラ",
+"english_name": "Viola (Viola spp.)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "一年草",
+"地被分類": "一年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"flower_winter",
+"long_blooming",
+"style_english_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 3,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -23827,6 +24111,8 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"flower_spring",
+"style_english_garden",
 "vine_for_fence"
 ],
 "hedge_purpose": [],
@@ -23845,7 +24131,7 @@
 "leaf_persistence_subcat": [
 "常緑（半落葉）"
 ],
-"source_section_count": 2,
+"source_section_count": 4,
 "source_pages": [
 "113",
 "139"
@@ -25514,6 +25800,7 @@
 "地域限定": "",
 "theme_tags": [
 "leaf_fragrance",
+"style_english_garden",
 "style_mediterranean"
 ],
 "hedge_purpose": [],
@@ -25530,7 +25817,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 3,
+"source_section_count": 4,
 "source_pages": [
 "107",
 "113",
@@ -26295,6 +26582,7 @@
 "drought_tolerant",
 "leaf_fragrance",
 "rooftop_garden",
+"style_english_garden",
 "style_mediterranean",
 "vegetable_herb"
 ],
@@ -26314,7 +26602,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 12,
+"source_section_count": 13,
 "source_pages": [
 "107",
 "113",
