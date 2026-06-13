@@ -247,48 +247,6 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "アカシアフリーシア",
-"english_name": "Acacia 'Frisia' (Robinia pseudoacacia 'Frisia')",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "落葉",
-"地被分類": "",
-"樹高区分": "中高木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
-"leaf_color_year_round",
-"new_growth_beautiful"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 2,
-"source_pages": [
-"102",
-"103"
-],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
 "plant_name": "アカシア類",
 "english_name": "Acacia spp.",
 "aliases": [],
@@ -1917,9 +1875,9 @@
 "english_name": "Iijima-sunago",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "常緑",
+"常緑性": "落葉",
 "地被分類": "",
-"樹高区分": "地被",
+"樹高区分": "中高木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -2119,7 +2077,7 @@
 },
 {
 "plant_name": "イソヤマアオキ",
-"english_name": "Isoyama-aoki",
+"english_name": "Cocculus laurifolius",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
@@ -2324,7 +2282,7 @@
 "english_name": "Japanese Yew (Taxus cuspidata)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中高木",
 "必要日照": "陰樹",
@@ -2561,12 +2519,12 @@
 },
 {
 "plant_name": "イヌコリヤナギ",
-"english_name": "Hakuro Nishiki Willow (Salix integra)",
+"english_name": "Salix integra",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "落葉",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "低木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -2655,7 +2613,7 @@
 "english_name": "Japanese Holly (Ilex crenata)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中木",
 "必要日照": "陰樹",
@@ -4270,9 +4228,9 @@
 "english_name": "Showy Stonecrop (Hylotelephium spectabile)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "常緑",
+"常緑性": "宿根草",
 "地被分類": "",
-"樹高区分": "低木",
+"樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -6695,7 +6653,7 @@
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "中木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -9552,7 +9510,7 @@
 "english_name": "Sasanqua Camellia (Camellia sasanqua)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中木",
 "必要日照": "unknown",
@@ -9948,9 +9906,9 @@
 "english_name": "Blue Anise Sage (Salvia guaranitica)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "低木",
+"常緑性": "宿根草",
+"地被分類": "宿根草",
+"樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -9988,9 +9946,9 @@
 "english_name": "Mexican Bush Sage (Salvia leucantha)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "低木",
+"常緑性": "宿根草",
+"地被分類": "宿根草",
+"樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -10028,7 +9986,7 @@
 "english_name": "Sawara Cypress (Chamaecyparis pisifera)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中高木",
 "必要日照": "中庸樹",
@@ -10086,7 +10044,7 @@
 "english_name": "Sweet Viburnum (Viburnum odoratissimum)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中高木",
 "必要日照": "unknown",
@@ -10148,7 +10106,7 @@
 "cultivars_listed": [],
 "常緑性": "落葉",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "低木",
 "必要日照": "陽樹",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -11529,7 +11487,7 @@
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "中木",
 "必要日照": "unknown",
 "耐寒ゾーン": "ゾーン9",
 "気候帯": "暖帯",
@@ -11568,7 +11526,7 @@
 "english_name": "Japanese Evergreen Oak (Quercus myrsinifolia)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "高木",
 "必要日照": "陰樹〜中庸樹",
@@ -12328,6 +12286,86 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ジュニペルスブルーカーペット",
+"english_name": "Blue Carpet Juniper (Juniperus squamata 'Blue Carpet')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [
+"匍匐（ほふく）形"
+],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ジュニペルスブルースター",
+"english_name": "Blue Star Juniper (Juniperus squamata 'Blue Star')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [
+"半球形・球形"
+],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ジュニペルスブルーパシフィック",
 "english_name": "Juniperus 'Blue Pacific'",
 "aliases": [],
@@ -12909,7 +12947,9 @@
 {
 "plant_name": "セイヨウカナメモチ",
 "english_name": "Red Tip Photinia (Photinia × fraseri)",
-"aliases": [],
+"aliases": [
+"レッドロビン"
+],
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
@@ -12923,7 +12963,9 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"new_growth_beautiful"
+"hedge_general",
+"new_growth_beautiful",
+"screen_hedge"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -12938,10 +12980,15 @@
 "understory_light": [],
 "garden_orientation": [],
 "fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
+"leaf_persistence_subcat": [
+"常緑（半常緑）"
+],
+"source_section_count": 4,
 "source_pages": [
-"102"
+"102",
+"114",
+"127",
+"138"
 ],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
@@ -13553,7 +13600,7 @@
 },
 {
 "plant_name": "タイカンマツバ",
-"english_name": "Taikan-matsuba",
+"english_name": "Ice Plant (Delosperma cooperi)",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
@@ -15469,7 +15516,7 @@
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "中木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -17072,9 +17119,9 @@
 "english_name": "Bitter Gourd (Momordica charantia)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "落葉",
+"常緑性": "一年草",
 "地被分類": "",
-"樹高区分": "低木",
+"樹高区分": "つる性草本",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -17209,6 +17256,48 @@
 "91"
 ],
 "plant_attribute_notes": "屋上緑化: その他。落葉",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ニセアカシアフリーシア",
+"english_name": "Black Locust 'Frisia' (Robinia pseudoacacia 'Frisia')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "落葉",
+"地被分類": "",
+"樹高区分": "中高木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_color_year_round",
+"new_growth_beautiful"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
+"source_pages": [
+"102",
+"103"
+],
+"plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
 {
@@ -17537,7 +17626,7 @@
 "english_name": "Japanese Privet (Ligustrum japonicum)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中高木",
 "必要日照": "unknown",
@@ -18353,7 +18442,9 @@
 {
 "plant_name": "ハクサンボク",
 "english_name": "Viburnum japonicum",
-"aliases": [],
+"aliases": [
+"常緑ガマズミ"
+],
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
@@ -18386,7 +18477,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 2,
+"source_section_count": 3,
 "source_pages": [
 "120"
 ],
@@ -18523,7 +18614,7 @@
 "cultivars_listed": [],
 "常緑性": "落葉",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "低木",
 "必要日照": "陽樹",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -19158,9 +19249,9 @@
 "english_name": "Cast Iron Plant (Aspidistra elatior)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "低木",
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "地被",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -19943,7 +20034,7 @@
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
-"樹高区分": "中木",
+"樹高区分": "低木",
 "必要日照": "陰樹〜中庸樹",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -20913,9 +21004,9 @@
 "english_name": "Bottle Gourd (Lagenaria siceraria)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "落葉",
+"常緑性": "一年草",
 "地被分類": "",
-"樹高区分": "低木",
+"樹高区分": "つる性草本",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -21078,6 +21169,50 @@
 "leaf_persistence_subcat": [],
 "source_section_count": 3,
 "source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ビグノニア",
+"english_name": "Cross Vine (Bignonia capreolata)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "半落葉",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"vine_for_fence",
+"vine_for_wall"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [
+"常緑（半落葉）"
+],
+"source_section_count": 2,
+"source_pages": [
+"139",
+"143"
+],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -21257,50 +21392,6 @@
 "source_section_count": 1,
 "source_pages": [
 "113"
-],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "ピクノニア",
-"english_name": "Pyrostegia venusta",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "半落葉",
-"地被分類": "",
-"樹高区分": "低木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
-"vine_for_fence",
-"vine_for_wall"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [
-"常緑（半落葉）"
-],
-"source_section_count": 2,
-"source_pages": [
-"139",
-"143"
 ],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
@@ -21535,7 +21626,7 @@
 "cultivars_listed": [],
 "常緑性": "落葉",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "低木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -21948,47 +22039,6 @@
 "source_section_count": 1,
 "source_pages": [
 "123"
-],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "フサアカシア",
-"english_name": "Mimosa (Acacia dealbata)",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "中高木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"黄・橙"
-],
-"地域限定": "",
-"theme_tags": [],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [
-"西側の庭"
-],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 2,
-"source_pages": [
-"113",
-"136"
 ],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
@@ -22495,86 +22545,6 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "ブルーカーペット",
-"english_name": "Blue Carpet Juniper (Juniperus squamata 'Blue Carpet')",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "地被",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
-"style_conifer_garden"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [
-"匍匐（ほふく）形"
-],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "ブルースター",
-"english_name": "Blue Star Juniper (Juniperus squamata 'Blue Star')",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "低木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
-"style_conifer_garden"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [
-"半球形・球形"
-],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
 "plant_name": "ブルーベリー",
 "english_name": "Blueberry (Vaccinium)",
 "aliases": [],
@@ -22887,9 +22857,9 @@
 "english_name": "Sponge Gourd / Luffa (Luffa aegyptiaca)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "落葉",
+"常緑性": "一年草",
 "地被分類": "",
-"樹高区分": "低木",
+"樹高区分": "つる性草本",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -23103,7 +23073,7 @@
 "english_name": "Ivy (Hedera spp.)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半落葉",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "低木",
 "必要日照": "unknown",
@@ -23874,7 +23844,7 @@
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "低木",
 "必要日照": "unknown",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -24071,7 +24041,7 @@
 "cultivars_listed": [],
 "常緑性": "落葉",
 "地被分類": "",
-"樹高区分": "中高木",
+"樹高区分": "中木",
 "必要日照": "陽樹",
 "耐寒ゾーン": "unknown",
 "気候帯": "unknown",
@@ -24400,7 +24370,7 @@
 "english_name": "Spindle Tree (Euonymus japonicus)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中高木",
 "必要日照": "陽樹",
@@ -25273,7 +25243,9 @@
 {
 "plant_name": "ミモザ",
 "english_name": "Silver Wattle / Mimosa (Acacia dealbata)",
-"aliases": [],
+"aliases": [
+"フサアカシア"
+],
 "cultivars_listed": [],
 "常緑性": "常緑",
 "地被分類": "",
@@ -25283,7 +25255,7 @@
 "気候帯": "unknown",
 "平均最低気温": "unknown",
 "花色": [
-"unknown"
+"黄・橙"
 ],
 "地域限定": "",
 "theme_tags": [
@@ -25300,11 +25272,16 @@
 "symbol_tree_category": [],
 "bloom_period": [],
 "understory_light": [],
-"garden_orientation": [],
+"garden_orientation": [
+"西側の庭"
+],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [],
+"source_section_count": 3,
+"source_pages": [
+"113",
+"136"
+],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -26883,7 +26860,7 @@
 "english_name": "Common Camellia (Camellia japonica)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中高木",
 "必要日照": "unknown",
@@ -27485,7 +27462,7 @@
 "english_name": "Bayberry (Morella rubra)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "高木",
 "必要日照": "中庸樹〜陽樹",
@@ -27945,6 +27922,42 @@
 "source_pages": [
 "146"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ライム",
+"english_name": "Lime (Citrus aurantiifolia)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -28553,11 +28566,11 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "レッドロビン",
-"english_name": "Photinia × fraseri 'Red Robin'",
+"plant_name": "レモン",
+"english_name": "Lemon (Citrus limon)",
 "aliases": [],
 "cultivars_listed": [],
-"常緑性": "半常緑",
+"常緑性": "常緑",
 "地被分類": "",
 "樹高区分": "中木",
 "必要日照": "unknown",
@@ -28568,10 +28581,7 @@
 "unknown"
 ],
 "地域限定": "",
-"theme_tags": [
-"hedge_general",
-"screen_hedge"
-],
+"theme_tags": [],
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [],
@@ -28585,15 +28595,9 @@
 "understory_light": [],
 "garden_orientation": [],
 "fruit_color": [],
-"leaf_persistence_subcat": [
-"常緑（半常緑）"
-],
-"source_section_count": 3,
-"source_pages": [
-"114",
-"127",
-"138"
-],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -28674,42 +28678,6 @@
 "source_pages": [
 "141"
 ],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "レモンライム",
-"english_name": "Lemon Lime (cultivar)",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "低木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -29069,42 +29037,6 @@
 "133",
 "153"
 ],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "常緑ガマズミ",
-"english_name": "Evergreen Viburnum (Viburnum japonicum)",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "常緑",
-"地被分類": "",
-"樹高区分": "中木",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
