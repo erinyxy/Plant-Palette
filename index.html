@@ -238,6 +238,8 @@ aside {
 .case-plant.missing:hover { background: var(--chip-bg); color: var(--text); }
 .case-note { font-size: 13px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; }
 .case-source { font-size: 12px; color: var(--text-soft); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+.case-ref { display: inline-block; font-size: 12px; background: var(--green-light); color: var(--green-dark); padding: 4px 10px; border-radius: 12px; margin: 3px 3px 0 0; cursor: pointer; }
+.case-ref:hover { background: var(--green); color: white; }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
@@ -855,8 +857,40 @@ function openModal(p) {
     html += `<div class="modal-section"><h3>Annotations</h3><div style="font-size:13px;color:#444">${p.parenthetical_notes}</div></div>`;
   }
 
+  // 反向リンク：この植物が登場する配植実例
+  const caseRefs = patterns.filter(c => caseHasPlant(c, p.plant_name));
+  if (caseRefs.length) {
+    html += '<div class="modal-section"><h3>登場する配植実例</h3><div>';
+    for (const c of caseRefs) {
+      html += `<span class="case-ref" data-cid="${c.id}">実例${c.id}：${c.title}</span>`;
+    }
+    html += '</div></div>';
+  }
+
   body.innerHTML = html;
+  body.querySelectorAll('.case-ref').forEach(el => {
+    el.onclick = () => openCaseFromPlant(el.dataset.cid);
+  });
   document.getElementById('modal-bg').classList.add('open');
+}
+
+// 某案例的任一层是否含该植物（含 areas 结构）
+function caseHasPlant(c, name) {
+  const groups = Array.isArray(c.areas) ? c.areas.map(a => a.layers) : [c.layers];
+  for (const layers of groups)
+    for (const names of Object.values(layers || {}))
+      if (Array.isArray(names) && names.includes(name)) return true;
+  return false;
+}
+// 从植物详情跳到该案例（切到実例模式并筛到它）
+function openCaseFromPlant(cid) {
+  closeModal();
+  const c = patterns.find(x => String(x.id) === String(cid));
+  setMode('cases');
+  const box = document.getElementById('search');
+  box.value = c ? c.title : '';
+  searchText = (c ? c.title : '').toLowerCase();
+  renderCases();
 }
 function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
 document.getElementById('modal-bg').onclick = (e) => {
