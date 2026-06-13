@@ -8900,6 +8900,7 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"compact_form",
 "low_maintenance",
 "shade_garden"
 ],
@@ -8919,7 +8920,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 4,
+"source_section_count": 5,
 "source_pages": [
 "114",
 "129",
@@ -24612,7 +24613,9 @@
 {
 "plant_name": "ヤブラン",
 "english_name": "Lilyturf (Liriope muscari)",
-"aliases": [],
+"aliases": [
+"リリオペ"
+],
 "cultivars_listed": [],
 "常緑性": "多年草",
 "地被分類": "多年草",
@@ -24626,6 +24629,8 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"compact_form",
+"drought_tolerant",
 "fruit_ornamental",
 "humid_tolerant",
 "rooftop_garden",
@@ -24652,7 +24657,7 @@
 "青〜紫"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 9,
+"source_section_count": 11,
 "source_pages": [
 "113",
 "114",
