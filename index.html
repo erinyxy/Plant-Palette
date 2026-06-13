@@ -71,7 +71,7 @@ aside {
   border-right: 1px solid var(--border); overflow-y: auto;
   height: calc(100vh - 56px); position: sticky; top: 56px;
 }
-#filters { padding: 8px 16px 16px; }
+#filters { padding: 8px 16px 48px; }
 #results { flex: 1; padding: 16px; }
 
 /* ===== Filter section ===== */
@@ -211,9 +211,11 @@ aside {
   main { display: block; }
   aside {
     position: fixed; top: 0; left: -100%; width: 86%;
-    max-width: 360px; height: 100vh; z-index: 150;
+    max-width: 360px; height: 100vh; height: 100dvh; z-index: 150;
     transition: left 0.25s; box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+    overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
   }
+  body.drawer-open { overflow: hidden; }
   aside.open { left: 0; }
   .backdrop {
     display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 140;
@@ -716,10 +718,12 @@ document.getElementById('modal-bg').onclick = (e) => {
 document.getElementById('filter-toggle').onclick = () => {
   document.getElementById('sidebar').classList.add('open');
   document.getElementById('backdrop').classList.add('show');
+  document.body.classList.add('drawer-open');  // 锁住背后列表，避免触摸滚动串到右侧
 };
 document.getElementById('backdrop').onclick = () => {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('backdrop').classList.remove('show');
+  document.body.classList.remove('drawer-open');
 };
 </script>
 </body>
