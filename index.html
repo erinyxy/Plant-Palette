@@ -200,6 +200,44 @@ aside {
   text-align: center; padding: 60px 20px; color: var(--text-soft); font-size: 14px;
 }
 
+/* ===== Mode tabs (植物 / 実例) ===== */
+.mode-tabs { display: flex; gap: 4px; }
+.mode-tab {
+  padding: 6px 14px; border: 1px solid var(--border); background: var(--bg);
+  border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text-soft);
+  white-space: nowrap;
+}
+.mode-tab.active { background: var(--green); color: white; border-color: var(--green); }
+
+/* ===== Case (配植実例) cards ===== */
+#cases { max-width: 760px; }
+.case-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px 18px; margin-bottom: 14px;
+}
+.case-title { font-size: 18px; font-weight: 600; color: var(--green-dark); }
+.case-id { font-size: 12px; color: var(--text-soft); float: right; font-weight: 400; }
+.case-ctx { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 4px; }
+.case-ctx span {
+  font-size: 12px; background: var(--green-light); color: var(--green-dark);
+  padding: 3px 10px; border-radius: 12px;
+}
+.case-layer {
+  display: flex; gap: 10px; padding: 9px 0; border-top: 1px solid var(--border);
+}
+.case-layer:first-of-type { margin-top: 8px; }
+.case-layer-label { width: 64px; flex-shrink: 0; font-size: 13px; color: var(--text-soft); padding-top: 3px; }
+.case-plants { display: flex; flex-wrap: wrap; gap: 6px; }
+.case-plant {
+  font-size: 13px; background: var(--chip-bg); color: var(--text);
+  padding: 3px 11px; border-radius: 13px; cursor: pointer;
+}
+.case-plant:hover { background: var(--green); color: white; }
+.case-plant.missing { opacity: 0.45; cursor: default; }
+.case-plant.missing:hover { background: var(--chip-bg); color: var(--text); }
+.case-note { font-size: 13px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; }
+.case-source { font-size: 12px; color: var(--text-soft); margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   header { padding: 10px 14px; flex-wrap: wrap; gap: 12px; }
@@ -224,6 +262,8 @@ aside {
   #results { padding: 12px; }
   .cards { grid-template-columns: 1fr; }
   .card { padding: 12px; }
+  .mode-tab { font-size: 12px; padding: 5px 11px; }
+  #cases { max-width: none; }
 }
 </style>
 </head>
@@ -233,6 +273,10 @@ aside {
   <div class="brand-wrap">
     <div class="brand">Plant Palette</div>
     <div class="byline">from Erin's Lab</div>
+  </div>
+  <div class="mode-tabs">
+    <button class="mode-tab active" id="tab-plants">植物</button>
+    <button class="mode-tab" id="tab-cases">実例</button>
   </div>
   <button id="filter-toggle">≡ Filters</button>
   <input type="text" id="search" placeholder="Search plants by name or attributes…">
@@ -251,6 +295,7 @@ aside {
   <section id="results">
     <div class="cards" id="cards"></div>
     <div class="empty" id="empty" style="display:none">No plants match your filters.</div>
+    <div id="cases" style="display:none"></div>
   </section>
 </main>
 
@@ -388,17 +433,22 @@ const UNIVERSAL_GROUPS = [
 
 // ===== State =====
 let plants = [];
+let patterns = [];        // 配植実例
+let plantNames = new Set();
+let mode = 'plants';      // 'plants' | 'cases'
 const filters = {};       // field → Set of selected values
 let searchText = '';
 
 // ===== Init =====
 fetch('plants.json').then(r => r.json()).then(data => {
   plants = data;
+  plantNames = new Set(data.map(p => p.plant_name));
   buildSearchIndex();
   document.querySelector('.count').innerHTML = `Showing <strong id="count">${data.length}</strong> / ${data.length}`;
   renderFilters();
   renderResults();
 });
+fetch('patterns.json').then(r => r.json()).then(data => { patterns = data; });
 
 // ===== Search index =====
 // 给每株植物 build 一个 _search 字段，包含可见的所有 attribute（去掉 unknown）
@@ -562,9 +612,89 @@ document.getElementById('clear-all').onclick = () => {
 
 document.getElementById('search').oninput = (e) => {
   searchText = e.target.value.trim().toLowerCase();
+  if (mode === 'cases') { renderCases(); return; }
   updateClearButton();
   renderResults();
 };
+
+// ===== Mode switching (植物 / 実例) =====
+function setMode(m) {
+  mode = m;
+  document.getElementById('tab-plants').classList.toggle('active', m === 'plants');
+  document.getElementById('tab-cases').classList.toggle('active', m === 'cases');
+  const isCases = m === 'cases';
+  document.getElementById('sidebar').style.display = isCases ? 'none' : '';
+  document.getElementById('filter-toggle').style.visibility = isCases ? 'hidden' : '';
+  document.getElementById('cards').style.display = isCases ? 'none' : '';
+  document.getElementById('empty').style.display = 'none';
+  document.getElementById('cases').style.display = isCases ? '' : 'none';
+  document.getElementById('search').placeholder = isCases
+    ? 'Search cases by name, plant, or place…'
+    : 'Search plants by name or attributes…';
+  if (isCases) renderCases(); else renderResults();
+}
+document.getElementById('tab-plants').onclick = () => setMode('plants');
+document.getElementById('tab-cases').onclick = () => setMode('cases');
+
+// ===== Render cases =====
+function caseMatches(c) {
+  if (!searchText) return true;
+  const parts = [c.title, ...(c.concept || []), ...Object.values(c.context || {})];
+  for (const names of Object.values(c.layers || {})) parts.push(...names);
+  return parts.join(' ').toLowerCase().includes(searchText);
+}
+
+function renderCases() {
+  const matched = patterns.filter(caseMatches);
+  document.querySelector('.count').innerHTML = `<strong id="count">${matched.length}</strong> / ${patterns.length} 実例`;
+  const wrap = document.getElementById('cases');
+  wrap.innerHTML = '';
+  if (!matched.length) {
+    wrap.innerHTML = '<div class="empty">No cases match.</div>';
+    return;
+  }
+  for (const c of matched) wrap.appendChild(makeCaseCard(c));
+}
+
+function makeCaseCard(c) {
+  const card = document.createElement('div');
+  card.className = 'case-card';
+  let html = `<div class="case-title">${c.title}<span class="case-id">実例 ${c.id}</span></div>`;
+  if (c.context) {
+    html += '<div class="case-ctx">';
+    for (const [k, v] of Object.entries(c.context)) html += `<span>${k}：${v}</span>`;
+    html += '</div>';
+  }
+  for (const [layer, names] of Object.entries(c.layers || {})) {
+    html += `<div class="case-layer"><div class="case-layer-label">${layer}</div><div class="case-plants">`;
+    for (const n of names) {
+      const known = plantNames.has(n);
+      html += `<span class="case-plant${known ? '' : ' missing'}" data-plant="${known ? n : ''}">${n}</span>`;
+    }
+    html += '</div></div>';
+  }
+  if (c.design_note) html += `<div class="case-note">${c.design_note}</div>`;
+  if (c.source) {
+    const s = c.source;
+    html += `<div class="case-source">出典：${s.book || ''}${s.page ? ' p.' + s.page : ''}${s.chapter ? '（' + s.chapter + '）' : ''}</div>`;
+  }
+  card.innerHTML = html;
+  card.querySelectorAll('.case-plant[data-plant]:not(.missing)').forEach(chip => {
+    chip.onclick = () => openPlantFromCase(chip.dataset.plant);
+  });
+  return card;
+}
+
+// 点案例里的植物 → 切到植物模式并搜索该株
+function openPlantFromCase(name) {
+  if (!name) return;
+  setMode('plants');
+  const box = document.getElementById('search');
+  box.value = name;
+  searchText = name.toLowerCase();
+  updateClearButton();
+  renderResults();
+}
 
 // ===== Filter logic =====
 // 同一筛选组（如 Garden Style 内多个 tag）→ OR
