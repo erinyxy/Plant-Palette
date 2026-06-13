@@ -605,6 +605,47 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "アガベ",
+"english_name": "Agave (Agave spp.)",
+"aliases": [
+"リュウゼツラン"
+],
+"cultivars_listed": [],
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"drought_tolerant",
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "アキグミ",
 "english_name": "Autumn Olive (Elaeagnus umbellata)",
 "aliases": [],
@@ -2695,6 +2736,46 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ウィッチタブルー",
+"english_name": "Wichita Blue Juniper (Juniperus scopulorum 'Wichita Blue')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [
+"円錐形"
+],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ウィーピングラブグラス",
 "english_name": "Weeping Lovegrass (Eragrostis curvula)",
 "aliases": [],
@@ -3318,6 +3399,46 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "エメラルド",
+"english_name": "Emerald Green Arborvitae (Thuja occidentalis 'Smaragd')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [
+"円錐形"
+],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "エリカ類",
 "english_name": "Heath (Erica spp.)",
 "aliases": [],
@@ -3356,6 +3477,45 @@
 "source_pages": [
 "152"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "エリゲロン",
+"english_name": "Fleabane (Erigeron spp.)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"long_blooming",
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -5592,12 +5752,15 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"style_conifer_garden",
 "style_japanese_classic",
 "topiary_western"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
-"conifer_shape_type": [],
+"conifer_shape_type": [
+"半球形"
+],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
 "pergola_category": [],
@@ -5609,7 +5772,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 3,
+"source_section_count": 4,
 "source_pages": [
 "114",
 "145",
@@ -8184,10 +8347,14 @@
 "unknown"
 ],
 "地域限定": "",
-"theme_tags": [],
+"theme_tags": [
+"style_conifer_garden"
+],
 "hedge_purpose": [],
 "shitate_type": [],
-"conifer_shape_type": [],
+"conifer_shape_type": [
+"半球形"
+],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
 "pergola_category": [],
@@ -8199,7 +8366,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "157"
 ],
@@ -9079,6 +9246,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "サルビア",
+"english_name": "Salvia (Salvia spp.)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_english_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "サルビアグラニティカ",
 "english_name": "Blue Anise Sage (Salvia guaranitica)",
 "aliases": [],
@@ -9115,44 +9320,6 @@
 "source_pages": [
 "152"
 ],
-"plant_attribute_notes": "",
-"parenthetical_notes": ""
-},
-{
-"plant_name": "サルビアネモローサ",
-"english_name": "Woodland Sage (Salvia nemorosa)",
-"aliases": [],
-"cultivars_listed": [],
-"常緑性": "多年草",
-"地被分類": "多年草",
-"樹高区分": "地被",
-"必要日照": "unknown",
-"耐寒ゾーン": "unknown",
-"気候帯": "unknown",
-"平均最低気温": "unknown",
-"花色": [
-"unknown"
-],
-"地域限定": "",
-"theme_tags": [
-"style_english_garden"
-],
-"hedge_purpose": [],
-"shitate_type": [],
-"conifer_shape_type": [],
-"bark_stripe_pattern": [],
-"lawn_grass_type": [],
-"pergola_category": [],
-"autumn_color_type": [],
-"leaf_color_system": [],
-"symbol_tree_category": [],
-"bloom_period": [],
-"understory_light": [],
-"garden_orientation": [],
-"fruit_color": [],
-"leaf_persistence_subcat": [],
-"source_section_count": 1,
-"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -11440,11 +11607,13 @@
 "地域限定": "",
 "theme_tags": [
 "conifer_shape",
-"leaf_color_year_round"
+"leaf_color_year_round",
+"style_conifer_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
+"匍匐形",
 "匍匐（ほふく）形"
 ],
 "bark_stripe_pattern": [],
@@ -11458,7 +11627,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 2,
+"source_section_count": 3,
 "source_pages": [
 "103",
 "146"
@@ -16871,11 +17040,14 @@
 "drought_tolerant",
 "rooftop_garden",
 "salt_wind_tolerant",
+"style_conifer_garden",
 "wind_block"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
-"conifer_shape_type": [],
+"conifer_shape_type": [
+"匍匐形"
+],
 "bark_stripe_pattern": [],
 "lawn_grass_type": [],
 "pergola_category": [],
@@ -16887,7 +17059,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 7,
+"source_section_count": 8,
 "source_pages": [
 "119",
 "123",
@@ -18367,6 +18539,45 @@
 "145",
 "157"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "バーベナ",
+"english_name": "Verbena (Verbena spp.)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "多年草",
+"地被分類": "多年草",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"long_blooming",
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -20902,6 +21113,86 @@
 "136",
 "143"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ブルーカーペット",
+"english_name": "Blue Carpet Juniper (Juniperus squamata 'Blue Carpet')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "地被",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [
+"匍匐形"
+],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ブルースター",
+"english_name": "Blue Star Juniper (Juniperus squamata 'Blue Star')",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"style_conifer_garden"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [
+"半球形"
+],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -26193,11 +26484,13 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"conifer_shape"
+"conifer_shape",
+"style_conifer_garden"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [
+"円錐形",
 "円錐形（広・狭）"
 ],
 "bark_stripe_pattern": [],
@@ -26211,7 +26504,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "146"
 ],
