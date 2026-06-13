@@ -23,6 +23,7 @@
 "flower_autumn",
 "fruit_ornamental",
 "humid_tolerant",
+"leaf_large",
 "leaf_rustling",
 "leaf_shiny",
 "low_maintenance",
@@ -49,7 +50,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 16,
+"source_section_count": 17,
 "source_pages": [
 "106",
 "111",
@@ -126,6 +127,7 @@
 "theme_tags": [
 "approach_perspective",
 "drought_tolerant",
+"leaf_large",
 "style_zoki_bayashi",
 "wind_calm"
 ],
@@ -143,7 +145,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 6,
+"source_section_count": 7,
 "source_pages": [
 "114",
 "122",
@@ -329,7 +331,9 @@
 {
 "plant_name": "アカシデ",
 "english_name": "Loose-flowered Hornbeam (Carpinus laxiflora)",
-"aliases": [],
+"aliases": [
+"ソロノキ"
+],
 "cultivars_listed": [],
 "常緑性": "落葉",
 "地被分類": "",
@@ -346,6 +350,7 @@
 "autumn_color",
 "bark_variegated",
 "flower_spring",
+"leaf_small",
 "leaf_translucent",
 "style_zoki_bayashi",
 "wind_calm"
@@ -366,7 +371,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 10,
+"source_section_count": 11,
 "source_pages": [
 "101",
 "114",
@@ -440,6 +445,7 @@
 "bird_friendly",
 "compact_form",
 "drought_tolerant",
+"leaf_small",
 "poor_soil_tolerant",
 "style_japanese_classic",
 "symbol_tree",
@@ -469,7 +475,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 12,
+"source_section_count": 13,
 "source_pages": [
 "114",
 "118",
@@ -895,6 +901,7 @@
 "theme_tags": [
 "flower_summer",
 "humid_tolerant",
+"leaf_large",
 "long_blooming",
 "new_growth_beautiful",
 "showy_flower",
@@ -916,7 +923,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 10,
+"source_section_count": 11,
 "source_pages": [
 "102",
 "108",
@@ -1240,6 +1247,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "アナベル",
+"english_name": "Smooth Hydrangea 'Annabelle' (Hydrangea arborescens)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "落葉",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_large"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "アブラチャン",
 "english_name": "Japanese Spicebush (Lindera praecox)",
 "aliases": [],
@@ -1349,6 +1394,7 @@
 "hedge_general",
 "humid_tolerant",
 "leaf_rustling",
+"leaf_small",
 "leaf_translucent",
 "long_blooming",
 "rooftop_garden"
@@ -1371,7 +1417,7 @@
 "leaf_persistence_subcat": [
 "常緑（半常緑）"
 ],
-"source_section_count": 17,
+"source_section_count": 18,
 "source_pages": [
 "101",
 "106",
@@ -1429,6 +1475,44 @@
 "source_pages": [
 "131"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "アメリカザイフリボク",
+"english_name": "Juneberry (Amelanchier canadensis)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "落葉",
+"地被分類": "",
+"樹高区分": "中高木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_large"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -2667,6 +2751,7 @@
 "地域限定": "",
 "theme_tags": [
 "autumn_color",
+"leaf_small",
 "style_japanese_classic",
 "symbol_tree",
 "wind_calm"
@@ -2689,7 +2774,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 7,
+"source_section_count": 8,
 "source_pages": [
 "102",
 "114",
@@ -2821,6 +2906,44 @@
 "source_pages": [
 "148"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ウエストリンギア",
+"english_name": "Coastal Rosemary (Westringia fruticosa)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_small"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -3265,6 +3388,7 @@
 "flower_summer",
 "fruit_ornamental",
 "humid_tolerant",
+"leaf_small",
 "leaf_translucent",
 "style_japanese_western_fusion",
 "style_zoki_bayashi",
@@ -3294,7 +3418,7 @@
 "白"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 18,
+"source_section_count": 19,
 "source_pages": [
 "101",
 "113",
@@ -4102,6 +4226,7 @@
 "container_pot",
 "drought_tolerant",
 "fruit_ornamental",
+"leaf_small",
 "style_mediterranean",
 "symbol_tree"
 ],
@@ -4125,7 +4250,7 @@
 "黒〜濃紫"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 10,
+"source_section_count": 11,
 "source_pages": [
 "114",
 "120",
@@ -4627,6 +4752,7 @@
 "autumn_color",
 "humid_tolerant",
 "leaf_fragrance",
+"leaf_large",
 "leaf_translucent",
 "narrow_branching",
 "symbol_tree",
@@ -4652,7 +4778,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 11,
+"source_section_count": 12,
 "source_pages": [
 "101",
 "102",
@@ -6912,6 +7038,7 @@
 "地域限定": "",
 "theme_tags": [
 "flower_fragrance",
+"leaf_large",
 "leaf_rustling",
 "shade_garden"
 ],
@@ -6931,7 +7058,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 6,
+"source_section_count": 7,
 "source_pages": [
 "106",
 "109",
@@ -7958,6 +8085,7 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"leaf_small",
 "shade_garden"
 ],
 "hedge_purpose": [],
@@ -7976,7 +8104,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 3,
+"source_section_count": 4,
 "source_pages": [
 "131",
 "136",
@@ -8167,6 +8295,7 @@
 "地域限定": "",
 "theme_tags": [
 "flower_spring",
+"leaf_small",
 "showy_flower"
 ],
 "hedge_purpose": [],
@@ -8188,7 +8317,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 6,
+"source_section_count": 7,
 "source_pages": [
 "109",
 "110",
@@ -8266,6 +8395,7 @@
 "地域限定": "",
 "theme_tags": [
 "bark_stripe",
+"leaf_large",
 "style_zoki_bayashi",
 "wind_calm"
 ],
@@ -8287,7 +8417,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 7,
+"source_section_count": 8,
 "source_pages": [
 "118",
 "122",
@@ -8466,6 +8596,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "コバノミツバツツジ",
+"english_name": "Rhododendron reticulatum",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "落葉",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_small"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "コブシ",
 "english_name": "Kobus Magnolia (Magnolia kobus)",
 "aliases": [],
@@ -8485,6 +8653,7 @@
 "flower_fragrance",
 "flower_spring",
 "leaf_fragrance",
+"leaf_large",
 "showy_flower",
 "style_zoki_bayashi",
 "symbol_tree",
@@ -8511,7 +8680,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 11,
+"source_section_count": 12,
 "source_pages": [
 "107",
 "109",
@@ -9212,6 +9381,7 @@
 "bark_smooth",
 "bark_variegated",
 "flower_summer",
+"leaf_small",
 "long_blooming",
 "showy_flower",
 "symbol_tree",
@@ -9237,7 +9407,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 10,
+"source_section_count": 11,
 "source_pages": [
 "108",
 "109",
@@ -10338,6 +10508,7 @@
 "theme_tags": [
 "exterior_impression",
 "leaf_shiny",
+"leaf_small",
 "symbol_tree"
 ],
 "hedge_purpose": [],
@@ -10358,7 +10529,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 7,
+"source_section_count": 8,
 "source_pages": [
 "106",
 "114",
@@ -10428,6 +10599,7 @@
 ],
 "地域限定": "",
 "theme_tags": [
+"leaf_large",
 "low_maintenance",
 "wafu_shitate"
 ],
@@ -10447,7 +10619,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 4,
+"source_section_count": 5,
 "source_pages": [
 "113",
 "129",
@@ -10606,6 +10778,7 @@
 "theme_tags": [
 "approach_perspective",
 "flower_spring",
+"leaf_large",
 "showy_flower"
 ],
 "hedge_purpose": [],
@@ -10626,7 +10799,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 5,
+"source_section_count": 6,
 "source_pages": [
 "109",
 "110",
@@ -10661,6 +10834,7 @@
 "exhaust_resistant",
 "exterior_impression",
 "flower_spring",
+"leaf_large",
 "low_maintenance",
 "salt_wind_tolerant",
 "sound_barrier",
@@ -10684,7 +10858,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 16,
+"source_section_count": 17,
 "source_pages": [
 "110",
 "113",
@@ -12711,6 +12885,7 @@
 "fruit_ornamental",
 "leaf_rustling",
 "leaf_shiny",
+"leaf_small",
 "low_maintenance",
 "style_zoki_bayashi"
 ],
@@ -12732,7 +12907,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 12,
+"source_section_count": 13,
 "source_pages": [
 "106",
 "120",
@@ -14728,7 +14903,9 @@
 "unknown"
 ],
 "地域限定": "",
-"theme_tags": [],
+"theme_tags": [
+"leaf_large"
+],
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [],
@@ -14745,7 +14922,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 2,
+"source_section_count": 3,
 "source_pages": [
 "136",
 "157"
@@ -15359,6 +15536,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ナツハゼ",
+"english_name": "Oldham's Blueberry (Vaccinium oldhamii)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "落葉",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_small"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ナツミカン",
 "english_name": "Natsumikan (Citrus natsudaidai)",
 "aliases": [],
@@ -15467,6 +15682,7 @@
 "theme_tags": [
 "autumn_color",
 "fruit_ornamental",
+"leaf_small",
 "wind_calm"
 ],
 "hedge_purpose": [],
@@ -15487,7 +15703,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 6,
+"source_section_count": 7,
 "source_pages": [
 "102",
 "113",
@@ -17229,7 +17445,8 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"fruit_ornamental"
+"fruit_ornamental",
+"leaf_large"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -17247,7 +17464,7 @@
 "赤〜橙〜黄"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "120"
 ],
@@ -17310,7 +17527,9 @@
 "unknown"
 ],
 "地域限定": "",
-"theme_tags": [],
+"theme_tags": [
+"leaf_small"
+],
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [],
@@ -17327,7 +17546,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "136"
 ],
@@ -17432,7 +17651,9 @@
 "unknown"
 ],
 "地域限定": "",
-"theme_tags": [],
+"theme_tags": [
+"leaf_large"
+],
 "hedge_purpose": [],
 "shitate_type": [],
 "conifer_shape_type": [],
@@ -17447,7 +17668,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 1,
+"source_section_count": 2,
 "source_pages": [
 "157"
 ],
@@ -18990,6 +19211,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ヒゼンマユミ",
+"english_name": "Hizen Spindle (Euonymus chibae)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_large"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ヒソップ",
 "english_name": "Hyssop (Hyssopus officinalis)",
 "aliases": [],
@@ -19428,6 +19687,7 @@
 "bark_variegated",
 "compact_form",
 "flower_summer",
+"leaf_small",
 "wind_calm"
 ],
 "hedge_purpose": [],
@@ -19444,7 +19704,7 @@
 "garden_orientation": [],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 8,
+"source_section_count": 9,
 "source_pages": [
 "111",
 "118",
@@ -19477,6 +19737,7 @@
 "theme_tags": [
 "compact_form",
 "humid_tolerant",
+"leaf_large",
 "low_maintenance",
 "shade_garden"
 ],
@@ -19496,7 +19757,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 6,
+"source_section_count": 7,
 "source_pages": [
 "114",
 "115",
@@ -19611,6 +19872,7 @@
 "exterior_impression",
 "flower_autumn",
 "flower_spring",
+"leaf_large",
 "leaf_translucent",
 "new_growth_beautiful"
 ],
@@ -19635,7 +19897,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 9,
+"source_section_count": 10,
 "source_pages": [
 "101",
 "102",
@@ -20044,6 +20306,44 @@
 "139",
 "143"
 ],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ピスタチア",
+"english_name": "Mastic Tree (Pistacia lentiscus)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "低木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_small"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
 "plant_attribute_notes": "",
 "parenthetical_notes": ""
 },
@@ -22388,8 +22688,8 @@
 "parenthetical_notes": ""
 },
 {
-"plant_name": "ホソバヒイラギナンテン",
-"english_name": "Mahonia confusa",
+"plant_name": "ホソバタイサンボク",
+"english_name": "Narrowleaf Bull Bay (Magnolia grandiflora 'Hasse')",
 "aliases": [],
 "cultivars_listed": [],
 "常緑性": "常緑",
@@ -22404,7 +22704,7 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"flower_winter"
+"leaf_large"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -22421,6 +22721,45 @@
 "fruit_color": [],
 "leaf_persistence_subcat": [],
 "source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
+"plant_name": "ホソバヒイラギナンテン",
+"english_name": "Mahonia confusa",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中高木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"flower_winter",
+"leaf_small"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 2,
 "source_pages": [
 "111"
 ],
@@ -22484,7 +22823,8 @@
 ],
 "地域限定": "",
 "theme_tags": [
-"disease_pest_resistant"
+"disease_pest_resistant",
+"leaf_large"
 ],
 "hedge_purpose": [],
 "shitate_type": [],
@@ -22502,7 +22842,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 2,
+"source_section_count": 3,
 "source_pages": [
 "128",
 "136"
@@ -23643,6 +23983,44 @@
 "parenthetical_notes": ""
 },
 {
+"plant_name": "ミモザ",
+"english_name": "Silver Wattle / Mimosa (Acacia dealbata)",
+"aliases": [],
+"cultivars_listed": [],
+"常緑性": "常緑",
+"地被分類": "",
+"樹高区分": "中高木",
+"必要日照": "unknown",
+"耐寒ゾーン": "unknown",
+"気候帯": "unknown",
+"平均最低気温": "unknown",
+"花色": [
+"unknown"
+],
+"地域限定": "",
+"theme_tags": [
+"leaf_small"
+],
+"hedge_purpose": [],
+"shitate_type": [],
+"conifer_shape_type": [],
+"bark_stripe_pattern": [],
+"lawn_grass_type": [],
+"pergola_category": [],
+"autumn_color_type": [],
+"leaf_color_system": [],
+"symbol_tree_category": [],
+"bloom_period": [],
+"understory_light": [],
+"garden_orientation": [],
+"fruit_color": [],
+"leaf_persistence_subcat": [],
+"source_section_count": 1,
+"source_pages": [],
+"plant_attribute_notes": "",
+"parenthetical_notes": ""
+},
+{
 "plant_name": "ミヤギノハギ",
 "english_name": "Lespedeza thunbergii",
 "aliases": [],
@@ -24010,6 +24388,7 @@
 "地域限定": "",
 "theme_tags": [
 "fruit_ornamental",
+"leaf_small",
 "style_zoki_bayashi"
 ],
 "hedge_purpose": [],
@@ -24030,7 +24409,7 @@
 "青〜紫"
 ],
 "leaf_persistence_subcat": [],
-"source_section_count": 3,
+"source_section_count": 4,
 "source_pages": [
 "120",
 "136",
@@ -25447,6 +25826,7 @@
 "theme_tags": [
 "flower_spring",
 "humid_tolerant",
+"leaf_small",
 "leaf_translucent",
 "new_growth_beautiful",
 "style_zoki_bayashi"
@@ -25469,7 +25849,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 9,
+"source_section_count": 10,
 "source_pages": [
 "101",
 "102",
@@ -25507,6 +25887,7 @@
 "flower_summer",
 "fruit_edible",
 "humid_tolerant",
+"leaf_large",
 "low_maintenance",
 "style_japanese_western_fusion",
 "style_zoki_bayashi",
@@ -25530,7 +25911,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 14,
+"source_section_count": 15,
 "source_pages": [
 "111",
 "114",
@@ -25682,6 +26063,7 @@
 "地域限定": "",
 "theme_tags": [
 "flower_spring",
+"leaf_small",
 "leaf_translucent",
 "new_growth_beautiful",
 "rooftop_garden",
@@ -25705,7 +26087,7 @@
 ],
 "fruit_color": [],
 "leaf_persistence_subcat": [],
-"source_section_count": 9,
+"source_section_count": 10,
 "source_pages": [
 "101",
 "102",
