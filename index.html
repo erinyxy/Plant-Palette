@@ -208,12 +208,25 @@ aside {
   white-space: nowrap;
 }
 .mode-tab.active { background: var(--green); color: white; border-color: var(--green); }
-.lang-tabs { display: flex; gap: 2px; }
-.lang-tab {
-  padding: 6px 9px; border: 1px solid var(--border); background: var(--bg);
-  border-radius: 6px; font-size: 12px; cursor: pointer; color: var(--text-soft);
+.lang-switch { position: relative; }
+.lang-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 10px; border: 1px solid var(--border); background: var(--bg);
+  border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text-soft);
 }
-.lang-tab.active { background: var(--green-dark); color: white; border-color: var(--green-dark); }
+.lang-btn:hover { background: var(--green-light); color: var(--green-dark); }
+.lang-menu {
+  display: none; position: absolute; right: 0; top: calc(100% + 4px);
+  background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12); z-index: 300; min-width: 124px; overflow: hidden;
+}
+.lang-menu.open { display: block; }
+.lang-opt {
+  display: block; width: 100%; text-align: left; padding: 9px 14px;
+  border: none; background: none; font-size: 13px; cursor: pointer; color: var(--text);
+}
+.lang-opt:hover { background: var(--green-light); }
+.lang-opt.active { color: var(--green-dark); font-weight: 600; background: var(--green-light); }
 
 /* ===== Case (配植実例) cards ===== */
 #cases { max-width: 760px; }
@@ -287,14 +300,20 @@ aside {
     <button class="mode-tab active" id="tab-plants">植物</button>
     <button class="mode-tab" id="tab-cases">実例</button>
   </div>
-  <div class="lang-tabs">
-    <button class="lang-tab" data-lang="ja">日</button>
-    <button class="lang-tab" data-lang="zh">中</button>
-    <button class="lang-tab" data-lang="en">EN</button>
-  </div>
   <button id="filter-toggle">≡ Filters</button>
   <input type="text" id="search" placeholder="Search plants by name or attributes…">
   <span class="count">Showing <strong id="count">0</strong> / 593</span>
+  <div class="lang-switch">
+    <button class="lang-btn" id="lang-btn" aria-label="Language" aria-haspopup="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+      <span id="lang-cur">日</span>
+    </button>
+    <div class="lang-menu" id="lang-menu">
+      <button class="lang-opt" data-lang="ja">日本語</button>
+      <button class="lang-opt" data-lang="zh">中文</button>
+      <button class="lang-opt" data-lang="en">English</button>
+    </div>
+  </div>
 </header>
 
 <div class="backdrop" id="backdrop"></div>
@@ -481,15 +500,24 @@ Promise.all([
   renderResults();
 });
 
+const LANG_SHORT = { ja: '日', zh: '中', en: 'EN' };
+function refreshLangUI() {
+  document.getElementById('lang-cur').textContent = LANG_SHORT[lang];
+  document.querySelectorAll('.lang-opt').forEach(o => o.classList.toggle('active', o.dataset.lang === lang));
+}
 function initLangSwitcher() {
-  document.querySelectorAll('.lang-tab').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-    btn.onclick = () => setLang(btn.dataset.lang);
+  const btn = document.getElementById('lang-btn');
+  const menu = document.getElementById('lang-menu');
+  btn.onclick = (e) => { e.stopPropagation(); menu.classList.toggle('open'); };
+  document.querySelectorAll('.lang-opt').forEach(o => {
+    o.onclick = () => { setLang(o.dataset.lang); menu.classList.remove('open'); };
   });
+  document.addEventListener('click', () => menu.classList.remove('open'));
+  refreshLangUI();
 }
 function setLang(l) {
   lang = l; localStorage.setItem('pp_lang', l);
-  document.querySelectorAll('.lang-tab').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  refreshLangUI();
   applyStaticText();
   document.getElementById('filters').innerHTML = '';
   renderFilters();
