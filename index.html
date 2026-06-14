@@ -208,6 +208,12 @@ aside {
   white-space: nowrap;
 }
 .mode-tab.active { background: var(--green); color: white; border-color: var(--green); }
+.lang-tabs { display: flex; gap: 2px; }
+.lang-tab {
+  padding: 6px 9px; border: 1px solid var(--border); background: var(--bg);
+  border-radius: 6px; font-size: 12px; cursor: pointer; color: var(--text-soft);
+}
+.lang-tab.active { background: var(--green-dark); color: white; border-color: var(--green-dark); }
 
 /* ===== Case (配植実例) cards ===== */
 #cases { max-width: 760px; }
@@ -280,6 +286,11 @@ aside {
   <div class="mode-tabs">
     <button class="mode-tab active" id="tab-plants">植物</button>
     <button class="mode-tab" id="tab-cases">実例</button>
+  </div>
+  <div class="lang-tabs">
+    <button class="lang-tab" data-lang="ja">日</button>
+    <button class="lang-tab" data-lang="zh">中</button>
+    <button class="lang-tab" data-lang="en">EN</button>
   </div>
   <button id="filter-toggle">≡ Filters</button>
   <input type="text" id="search" placeholder="Search plants by name or attributes…">
@@ -438,20 +449,61 @@ const UNIVERSAL_GROUPS = [
 let plants = [];
 let patterns = [];        // 配植実例
 let plantNames = new Set();
+let plantsByName = {};
 let mode = 'plants';      // 'plants' | 'cases'
 const filters = {};       // field → Set of selected values
 let searchText = '';
 
+// ===== i18n =====
+let T = {};
+let lang = (['ja','zh','en'].includes(localStorage.getItem('pp_lang')) ? localStorage.getItem('pp_lang') : 'ja');
+function t(key) { return (T.ui && T.ui[key] && T.ui[key][lang]) || (T.ui && T.ui[key] && T.ui[key].ja) || key; }
+function tg(enLabel) { return (T.groups && T.groups[enLabel] && T.groups[enLabel][lang]) || enLabel; }
+function tv(v) { return (T.values && T.values[v] && T.values[v][lang]) || v; }
+function tt(code) { return (T.tags && T.tags[code] && T.tags[code][lang]) || code; }
+function tsec(s) { return (T.sections && T.sections[s] && T.sections[s][lang]) || s; }
+function langsOf(map, key) { const e = map && map[key]; return e ? [e.ja, e.zh, e.en] : []; }
+function getName(p) { return (lang === 'zh' && p.name_zh) ? p.name_zh : p.plant_name; }
+
 // ===== Init =====
-fetch('plants.json').then(r => r.json()).then(data => {
-  plants = data;
-  plantNames = new Set(data.map(p => p.plant_name));
+Promise.all([
+  fetch('translations.json').then(r => r.json()),
+  fetch('plants.json').then(r => r.json()),
+  fetch('patterns.json').then(r => r.json()),
+]).then(([tr, pl, pa]) => {
+  T = tr; plants = pl; patterns = pa;
+  plantNames = new Set(pl.map(p => p.plant_name));
+  plantsByName = Object.fromEntries(pl.map(p => [p.plant_name, p]));
   buildSearchIndex();
-  document.querySelector('.count').innerHTML = `Showing <strong id="count">${data.length}</strong> / ${data.length}`;
+  initLangSwitcher();
+  applyStaticText();
   renderFilters();
   renderResults();
 });
-fetch('patterns.json').then(r => r.json()).then(data => { patterns = data; });
+
+function initLangSwitcher() {
+  document.querySelectorAll('.lang-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+    btn.onclick = () => setLang(btn.dataset.lang);
+  });
+}
+function setLang(l) {
+  lang = l; localStorage.setItem('pp_lang', l);
+  document.querySelectorAll('.lang-tab').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  applyStaticText();
+  document.getElementById('filters').innerHTML = '';
+  renderFilters();
+  if (mode === 'cases') renderCases(); else renderResults();
+}
+// 静态 UI 文案（语言切换/初始时刷新）
+function applyStaticText() {
+  document.getElementById('tab-plants').textContent = t('mode_plants');
+  document.getElementById('tab-cases').textContent = t('mode_cases');
+  document.getElementById('filter-toggle').textContent = t('filters_btn');
+  document.getElementById('search').placeholder = mode === 'cases' ? t('search_cases') : t('search_plants');
+  document.getElementById('empty').textContent = t('no_plants');
+  updateClearButton();
+}
 
 // ===== Search index =====
 // 给每株植物 build 一个 _search 字段，包含可见的所有 attribute（去掉 unknown）
@@ -462,22 +514,22 @@ function buildSearchIndex() {
     'fruit_color','leaf_persistence_subcat'];
   const UNI_FIELDS = ['常緑性','樹高区分','必要日照','耐寒ゾーン','気候帯','平均最低気温','地域限定'];
   for (const p of plants) {
-    const parts = [p.plant_name, p.english_name || ''];
+    const parts = [p.plant_name, p.english_name || '', p.name_zh || ''];
     if (p.aliases) parts.push(...p.aliases);
     if (p.cultivars_listed) parts.push(...p.cultivars_listed);
     for (const f of UNI_FIELDS) {
       const v = p[f];
-      if (v && v !== 'unknown') parts.push(v);
+      if (v && v !== 'unknown') { parts.push(v); parts.push(...langsOf(T.values, v)); }
     }
-    if (p.花色) parts.push(...p.花色.filter(c => c !== 'unknown'));
+    if (p.花色) for (const c of p.花色) if (c !== 'unknown') { parts.push(c); parts.push(...langsOf(T.values, c)); }
     for (const f of SUB_FIELDS) {
       if (p[f]) parts.push(...p[f]);
     }
-    // theme_tags 转为日文标签让用户能搜「和風」等
+    // theme_tags：三语标签都进搜索索引（和風/和风/Japanese classic 都能搜）
     if (p.theme_tags) {
-      for (const t of p.theme_tags) parts.push(TAG_JP[t] || t);
+      for (const code of p.theme_tags) { parts.push(code); parts.push(...langsOf(T.tags, code)); }
     }
-    p._search = parts.join(' ').toLowerCase();
+    p._search = parts.filter(Boolean).join(' ').toLowerCase();
   }
 }
 
@@ -487,7 +539,7 @@ function renderFilters() {
   // Universal first
   const uniHeader = document.createElement('div');
   uniHeader.className = 'zone-header';
-  uniHeader.textContent = 'Basic Attributes';
+  uniHeader.textContent = t('basic_attributes');
   container.appendChild(uniHeader);
   for (const [enLabel, field, values] of UNIVERSAL_GROUPS) {
     // 分段结构 [[subTitle, [v1,v2,...]], ...] 用于 Persistence
@@ -501,7 +553,7 @@ function renderFilters() {
   // Themes
   const themeHeader = document.createElement('div');
   themeHeader.className = 'zone-header';
-  themeHeader.textContent = 'Themes';
+  themeHeader.textContent = t('themes');
   container.appendChild(themeHeader);
   for (const [enLabel, colorClass, tagList] of THEME_GROUPS) {
     container.appendChild(makeFilterGroup(enLabel, 'theme_tags', tagList, false, colorClass));
@@ -515,12 +567,13 @@ function makeFilterGroup(enLabel, field, options, openByDefault, colorClass) {
   const total = options.reduce((s, [v]) => s + (counts[v] || 0), 0);
   const header = document.createElement('div');
   header.className = 'filter-header';
-  header.innerHTML = `<span class="filter-title">${enLabel}<small>${total}</small></span><span class="filter-arrow">▶</span>`;
+  header.innerHTML = `<span class="filter-title">${tg(enLabel)}<small>${total}</small></span><span class="filter-arrow">▶</span>`;
   header.onclick = () => group.classList.toggle('open');
   const body = document.createElement('div');
   body.className = 'filter-body';
-  for (const [value, label] of options) {
+  for (const [value] of options) {
     if (!counts[value]) continue;
+    const label = field === 'theme_tags' ? tt(value) : tv(value);
     const chip = document.createElement('span');
     chip.className = 'chip';
     if (colorClass) chip.dataset.color = colorClass;
@@ -542,7 +595,7 @@ function makeSectionedFilterGroup(enLabel, field, sections, openByDefault) {
   const total = allValues.reduce((s, v) => s + (counts[v] || 0), 0);
   const header = document.createElement('div');
   header.className = 'filter-header';
-  header.innerHTML = `<span class="filter-title">${enLabel}<small>${total}</small></span><span class="filter-arrow">▶</span>`;
+  header.innerHTML = `<span class="filter-title">${tg(enLabel)}<small>${total}</small></span><span class="filter-arrow">▶</span>`;
   header.onclick = () => group.classList.toggle('open');
   const body = document.createElement('div');
   body.className = 'filter-body';
@@ -552,12 +605,12 @@ function makeSectionedFilterGroup(enLabel, field, sections, openByDefault) {
     const sub = document.createElement('div');
     sub.className = 'filter-subsection';
     sub.style.cssText = 'width:100%;font-size:11px;color:#888;margin:6px 0 2px;letter-spacing:0.5px;';
-    sub.textContent = subTitle;
+    sub.textContent = tsec(subTitle);
     body.appendChild(sub);
     for (const value of visible) {
       const chip = document.createElement('span');
       chip.className = 'chip';
-      chip.innerHTML = `${value}<span class="count">${counts[value]}</span>`;
+      chip.innerHTML = `${tv(value)}<span class="count">${counts[value]}</span>`;
       chip.onclick = () => toggleFilter(enLabel, field, value, chip);
       body.appendChild(chip);
     }
@@ -601,7 +654,7 @@ function updateClearButton() {
   for (const k in filters) n += filters[k].values.size;
   const btn = document.getElementById('clear-all');
   btn.disabled = n === 0 && !searchText;
-  btn.textContent = n > 0 ? `Clear filters (${n})` : 'Clear all filters';
+  btn.textContent = n > 0 ? t('clear_n').replace('{n}', n) : t('clear_all');
 }
 
 document.getElementById('clear-all').onclick = () => {
@@ -631,9 +684,7 @@ function setMode(m) {
   document.getElementById('cards').style.display = isCases ? 'none' : '';
   document.getElementById('empty').style.display = 'none';
   document.getElementById('cases').style.display = isCases ? '' : 'none';
-  document.getElementById('search').placeholder = isCases
-    ? 'Search cases by name, plant, or place…'
-    : 'Search plants by name or attributes…';
+  document.getElementById('search').placeholder = isCases ? t('search_cases') : t('search_plants');
   if (isCases) renderCases(); else renderResults();
 }
 document.getElementById('tab-plants').onclick = () => setMode('plants');
@@ -643,17 +694,18 @@ document.getElementById('tab-cases').onclick = () => setMode('cases');
 function caseMatches(c) {
   if (!searchText) return true;
   const parts = [c.title, ...(c.concept || []), ...Object.values(c.context || {})];
-  for (const names of Object.values(c.layers || {})) parts.push(...names);
+  const groups = Array.isArray(c.areas) ? c.areas.map(a => a.layers) : [c.layers];
+  for (const layers of groups) for (const names of Object.values(layers || {})) parts.push(...names);
   return parts.join(' ').toLowerCase().includes(searchText);
 }
 
 function renderCases() {
   const matched = patterns.filter(caseMatches);
-  document.querySelector('.count').innerHTML = `<strong id="count">${matched.length}</strong> / ${patterns.length} 実例`;
+  document.querySelector('.count').innerHTML = `<strong id="count">${matched.length}</strong> / ${patterns.length} ${t('cases_unit')}`;
   const wrap = document.getElementById('cases');
   wrap.innerHTML = '';
   if (!matched.length) {
-    wrap.innerHTML = '<div class="empty">No cases match.</div>';
+    wrap.innerHTML = `<div class="empty">${t('no_cases')}</div>`;
     return;
   }
   for (const c of matched) wrap.appendChild(makeCaseCard(c));
@@ -665,7 +717,8 @@ function renderLayers(layers) {
     html += `<div class="case-layer"><div class="case-layer-label">${layer}</div><div class="case-plants">`;
     for (const n of names) {
       const known = plantNames.has(n);
-      html += `<span class="case-plant${known ? '' : ' missing'}" data-plant="${known ? n : ''}">${n}</span>`;
+      const disp = known && plantsByName[n] ? getName(plantsByName[n]) : n;
+      html += `<span class="case-plant${known ? '' : ' missing'}" data-plant="${known ? n : ''}">${disp}</span>`;
     }
     html += '</div></div>';
   }
@@ -675,7 +728,7 @@ function renderLayers(layers) {
 function makeCaseCard(c) {
   const card = document.createElement('div');
   card.className = 'case-card';
-  let html = `<div class="case-title">${c.title}<span class="case-id">実例 ${c.id}</span></div>`;
+  let html = `<div class="case-title">${c.title}<span class="case-id">${t('cases_unit')} ${c.id}</span></div>`;
   if (c.context) {
     html += '<div class="case-ctx">';
     for (const [k, v] of Object.entries(c.context)) html += `<span>${k}：${v}</span>`;
@@ -733,7 +786,7 @@ function matchPlant(p) {
 // ===== Render =====
 function renderResults() {
   const matched = plants.filter(matchPlant);
-  document.getElementById('count').textContent = matched.length;
+  document.querySelector('.count').innerHTML = `${t('showing')} <strong id="count">${matched.length}</strong> / ${plants.length}`;
   const cards = document.getElementById('cards');
   const empty = document.getElementById('empty');
   if (matched.length === 0) {
@@ -758,26 +811,24 @@ function makeCard(p) {
   const card = document.createElement('div');
   card.className = 'card';
   card.onclick = () => openModal(p);
-  let html = `<div class="card-name">${p.plant_name}</div>`;
-  if (p.english_name) html += `<div class="card-en">${p.english_name}</div>`;
+  let html = `<div class="card-name">${getName(p)}</div>`;
+  const sub = lang === 'zh' && p.name_zh ? p.plant_name : p.english_name;
+  if (sub) html += `<div class="card-en">${sub}</div>`;
   html += '<div class="card-attrs">';
-  if (p.樹高区分 && p.樹高区分 !== 'unknown') html += `<span class="attr-chip">${p.樹高区分}</span>`;
-  if (p.必要日照 && p.必要日照 !== 'unknown') html += `<span class="attr-chip">${p.必要日照}</span>`;
-  if (p.常緑性 && p.常緑性 !== 'unknown') html += `<span class="attr-chip">${p.常緑性}</span>`;
+  if (p.樹高区分 && p.樹高区分 !== 'unknown') html += `<span class="attr-chip">${tv(p.樹高区分)}</span>`;
+  if (p.必要日照 && p.必要日照 !== 'unknown') html += `<span class="attr-chip">${tv(p.必要日照)}</span>`;
+  if (p.常緑性 && p.常緑性 !== 'unknown') html += `<span class="attr-chip">${tv(p.常緑性)}</span>`;
   const validColors = (p.花色 || []).filter(c => c && c !== 'unknown');
-  if (validColors.length) html += `<span class="attr-chip">花${validColors.join('・')}</span>`;
+  if (validColors.length) html += `<span class="attr-chip">${validColors.map(tv).join('・')}</span>`;
   // Limit theme tags shown
   if (p.theme_tags && p.theme_tags.length) {
     const tagsToShow = p.theme_tags.slice(0, 3);
     for (const tag of tagsToShow) {
-      const jp = tagJapanese(tag);
-      const cls = tagColor(tag);
-      html += `<span class="attr-chip ${cls}">${jp}</span>`;
+      html += `<span class="attr-chip ${tagColor(tag)}">${tt(tag)}</span>`;
     }
     if (p.theme_tags.length > 3) html += `<span class="attr-chip" style="background:#eee;color:#888">+${p.theme_tags.length - 3}</span>`;
   }
   html += '</div>';
-  html += `<div class="card-meta">From ${p.source_section_count} section(s)</div>`;
   card.innerHTML = html;
   return card;
 }
@@ -797,32 +848,34 @@ function tagColor(t) { return 'tag-' + (TAG_COLOR[t] || 'feature'); }
 // ===== Modal =====
 function openModal(p) {
   const body = document.getElementById('modal-body');
-  let html = `<h2>${p.plant_name}</h2>`;
-  if (p.english_name) html += `<div style="color:#6c6c6c;font-style:italic;margin-bottom:6px">${p.english_name}</div>`;
-  if (p.aliases && p.aliases.length) html += `<div style="font-size:13px;color:#6c6c6c">別名: ${p.aliases.join('、')}</div>`;
-  if (p.cultivars_listed && p.cultivars_listed.length) html += `<div style="font-size:13px;color:#6c6c6c">品種: ${p.cultivars_listed.join('、')}</div>`;
+  let html = `<h2>${getName(p)}</h2>`;
+  const msub = lang === 'zh' && p.name_zh ? p.plant_name : p.english_name;
+  if (msub) html += `<div style="color:#6c6c6c;font-style:italic;margin-bottom:6px">${msub}</div>`;
+  if (lang === 'zh' && p.name_zh && p.english_name) html += `<div style="font-size:12px;color:#9a9a9a">${p.english_name}</div>`;
+  if (p.aliases && p.aliases.length) html += `<div style="font-size:13px;color:#6c6c6c">${t('alias')}: ${p.aliases.join('、')}</div>`;
+  if (p.cultivars_listed && p.cultivars_listed.length) html += `<div style="font-size:13px;color:#6c6c6c">${t('cultivar')}: ${p.cultivars_listed.join('、')}</div>`;
 
   // 先 build 内容，只有非空才输出 section heading
   let uniHtml = '';
-  for (const [enLabel, field] of [
-    ['Size 樹高区分', '樹高区分'], ['Light 必要日照', '必要日照'], ['Persistence 常緑性', '常緑性'],
-    ['Hardiness Zone', '耐寒ゾーン'], ['Climate', '気候帯'], ['Min Temp', '平均最低気温'],
-    ['Flower Color', '花色'], ['Region', '地域限定']
+  for (const [gkey, field, translate] of [
+    ['Size', '樹高区分', true], ['Light', '必要日照', true], ['Persistence', '常緑性', true],
+    ['Hardiness Zone', '耐寒ゾーン', true], ['Climate Belt', '気候帯', true], ['Min Temp', '平均最低気温', false],
+    ['Flower Color', '花色', true], ['Region', '地域限定', false]
   ]) {
     let v = p[field];
     if (Array.isArray(v)) v = v.filter(x => x && x !== 'unknown');
     if (v && v !== 'unknown' && (!Array.isArray(v) || v.length)) {
-      const dv = Array.isArray(v) ? v.join('、') : v;
-      uniHtml += `<dt>${enLabel}</dt><dd>${dv}</dd>`;
+      const arr = Array.isArray(v) ? v : [v];
+      const dv = arr.map(x => translate ? tv(x) : x).join('、');
+      uniHtml += `<dt>${tg(gkey)}</dt><dd>${dv}</dd>`;
     }
   }
-  if (uniHtml) html += `<div class="modal-section"><h3>Universal Attributes</h3><dl>${uniHtml}</dl></div>`;
+  if (uniHtml) html += `<div class="modal-section"><h3>${t('universal_attributes')}</h3><dl>${uniHtml}</dl></div>`;
 
   if (p.theme_tags && p.theme_tags.length) {
-    html += '<div class="modal-section"><h3>Themes</h3><div>';
+    html += `<div class="modal-section"><h3>${t('themes')}</h3><div>`;
     for (const tag of p.theme_tags) {
-      const cls = tagColor(tag);
-      html += `<span class="attr-chip ${cls}" style="margin:3px">${tagJapanese(tag)}</span>`;
+      html += `<span class="attr-chip ${tagColor(tag)}" style="margin:3px">${tt(tag)}</span>`;
     }
     html += '</div></div>';
   }
@@ -839,7 +892,7 @@ function openModal(p) {
   ];
   const subEntries = SUB.filter(([_, f]) => p[f] && p[f].length);
   if (subEntries.length) {
-    html += '<div class="modal-section"><h3>Sub-attributes</h3><dl>';
+    html += `<div class="modal-section"><h3>${t('sub_attributes')}</h3><dl>`;
     for (const [enLabel, field] of subEntries) {
       html += `<dt>${enLabel}</dt><dd>${p[field].join('、')}</dd>`;
     }
@@ -847,18 +900,18 @@ function openModal(p) {
   }
 
   if (p.plant_attribute_notes) {
-    html += `<div class="modal-section"><h3>Notes</h3><div style="font-size:13px;color:#444">${p.plant_attribute_notes.replace(/\|\|/g, '<br>')}</div></div>`;
+    html += `<div class="modal-section"><h3>${t('notes')}</h3><div style="font-size:13px;color:#444">${p.plant_attribute_notes.replace(/\|\|/g, '<br>')}</div></div>`;
   }
   if (p.parenthetical_notes) {
-    html += `<div class="modal-section"><h3>Annotations</h3><div style="font-size:13px;color:#444">${p.parenthetical_notes}</div></div>`;
+    html += `<div class="modal-section"><h3>${t('annotations')}</h3><div style="font-size:13px;color:#444">${p.parenthetical_notes}</div></div>`;
   }
 
   // 反向リンク：この植物が登場する配植実例
   const caseRefs = patterns.filter(c => caseHasPlant(c, p.plant_name));
   if (caseRefs.length) {
-    html += '<div class="modal-section"><h3>登場する配植実例</h3><div>';
+    html += `<div class="modal-section"><h3>${t('appears_in_cases')}</h3><div>`;
     for (const c of caseRefs) {
-      html += `<span class="case-ref" data-cid="${c.id}">実例${c.id}：${c.title}</span>`;
+      html += `<span class="case-ref" data-cid="${c.id}">${t('cases_unit')} ${c.id}：${c.title}</span>`;
     }
     html += '</div></div>';
   }
