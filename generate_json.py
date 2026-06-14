@@ -5,7 +5,18 @@ import json
 import os
 
 CSV = '/Users/errena/Claude/project/配植工具/植栽_Layer2.csv'
+ZH = '/Users/errena/Claude/project/配植工具/中文名_作業.csv'
 OUT = '/Users/errena/Claude/project/配植工具/ui/plants.json'
+
+# 中文名映射（来自校对工作表，逐步补全；以后改表格重跑即自动更新）
+zh_map = {}
+if os.path.exists(ZH):
+    with open(ZH, encoding='utf-8-sig') as f:
+        for row in csv.DictReader(f):
+            name = (row.get('植物名(日)') or '').strip()
+            zh = (row.get('中文名候选') or '').strip()
+            if name and zh:
+                zh_map[name] = zh
 
 # 多值字段（用 ; 分隔）
 MULTI_FIELDS = {
@@ -32,6 +43,8 @@ with open(CSV, encoding='utf-8') as f:
             else:
                 # 把 unknown 也保留为字符串，UI 决定是否显示
                 p[k] = v
+        if p.get('plant_name') in zh_map:
+            p['name_zh'] = zh_map[p['plant_name']]
         plants.append(p)
 
 with open(OUT, 'w', encoding='utf-8') as f:
