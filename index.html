@@ -690,10 +690,6 @@ function makeCaseCard(c) {
     html += renderLayers(c.layers);
   }
   if (c.design_note) html += `<div class="case-note">${c.design_note}</div>`;
-  if (c.source) {
-    const s = c.source;
-    html += `<div class="case-source">出典：${s.book || ''}${s.page ? ' p.' + s.page : ''}${s.chapter ? '（' + s.chapter + '）' : ''}</div>`;
-  }
   card.innerHTML = html;
   card.querySelectorAll('.case-plant[data-plant]:not(.missing)').forEach(chip => {
     chip.onclick = () => openPlantFromCase(chip.dataset.plant);
